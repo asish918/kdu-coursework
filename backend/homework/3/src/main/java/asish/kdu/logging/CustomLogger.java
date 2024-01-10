@@ -3,6 +3,9 @@ package asish.kdu.logging;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/**
+ * CustomLogger has been defined with support for various levels of logging based on enum input
+ */
 public class CustomLogger {
     public enum LoggerType {
         DEBUG,

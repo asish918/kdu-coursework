@@ -9,6 +9,12 @@ import asish.kdu.logging.CustomLogger;
 import asish.kdu.utilities.Billing;
 
 public class Main {
+
+    /**
+     * I have used INFO logger type only because our program today
+     * doesn't really have a lot of spots for different levels of logging
+     * @param args
+     */
     public static void main(String[] args) {
         CustomLogger.LoggerType logType = CustomLogger.LoggerType.INFO;
 

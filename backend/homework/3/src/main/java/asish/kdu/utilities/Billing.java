@@ -3,6 +3,9 @@ package asish.kdu.utilities;
 import asish.kdu.entities.Patient;
 import asish.kdu.insurance.HealthInsurancePlan;
 
+/**
+ * The private Billing constructor is used because SonarQube is suggesting me :(
+ */
 public class Billing {
     private Billing() {
     }
