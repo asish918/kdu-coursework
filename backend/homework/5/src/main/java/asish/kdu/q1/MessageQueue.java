@@ -14,6 +14,7 @@ public class MessageQueue {
     /**
      * I am implementing basic Semaphore manually over here
      * rather than implementing default Semaphore class of Java
+     * since its a bit complex for me as of now :(
      */
     private final AtomicBoolean sendLock = new AtomicBoolean(true);
     private final AtomicBoolean receiveLock = new AtomicBoolean(false);
