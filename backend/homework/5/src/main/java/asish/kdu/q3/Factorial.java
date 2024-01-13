@@ -22,6 +22,8 @@ public class Factorial {
             factorialThread.join();
             factorsThread.join();
         } catch (InterruptedException e) {
+            factorialThread.interrupt();
+            factorialThread.interrupt();
             CustomLogger.printLogger("Interrupt in Factorial", CustomLogger.LoggerType.ERROR);
         }
 

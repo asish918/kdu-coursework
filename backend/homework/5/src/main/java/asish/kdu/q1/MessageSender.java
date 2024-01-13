@@ -2,7 +2,7 @@ package asish.kdu.q1;
 
 import asish.kdu.logging.CustomLogger;
 
-public class MessageSender implements Runnable {
+public class MessageSender extends Thread implements Runnable {
     private final String name;
     private final MessageQueue messageQueue;
 
@@ -17,6 +17,7 @@ public class MessageSender implements Runnable {
         try {
             messageQueue.addMessage(message);
         } catch (InterruptedException e) {
+            this.interrupt();
             CustomLogger.printLogger("Interrupt in MessageSender", CustomLogger.LoggerType.ERROR);
         }
     }
