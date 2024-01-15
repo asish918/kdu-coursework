@@ -29,8 +29,9 @@ public class Query {
                 .limit(n)
                 .toList();
 
-        CustomLogger.printLogger("Top " + n + " coins based on price:", CustomLogger.LoggerType.INFO);
-        topCoins.forEach(coin -> CustomLogger.printLogger(coin.getName() + ": $" + coin.getPrice(), CustomLogger.LoggerType.INFO));
+        System.out.println("Top " + n + " coins based on price:");
+//        CustomLogger.printLogger("Top " + n + " coins based on price:", CustomLogger.LoggerType.INFO);
+        topCoins.forEach(coin -> System.out.println(coin.getName() + ": $" + coin.getPrice()));
     }
 
     public static void traderPortfolio(String walletAddress) {
@@ -41,8 +42,8 @@ public class Query {
         }
 
         assert t != null;
-        CustomLogger.printLogger("Trader " + t.getFirstName() + " " +  t.getLastName() + "'s Portfolio:", CustomLogger.LoggerType.INFO);
-        t.getWallet().forEach((coin, quantity) -> CustomLogger.printLogger(coin + " " + quantity, CustomLogger.LoggerType.INFO));
+        System.out.println("Trader " + t.getFirstName() + " " +  t.getLastName() + "'s Portfolio:");
+        t.getWallet().forEach((coin, quantity) -> System.out.println(coin + " " + quantity));
     }
 
     public static void traderProfitLoss(String walletAddress) {
@@ -53,8 +54,8 @@ public class Query {
         }
 
         assert t != null;
-        CustomLogger.printLogger("Trader " + t.getFirstName() + " " +  t.getLastName() + "'s Profit Loss:", CustomLogger.LoggerType.INFO);
-        CustomLogger.printLogger(Double.toString(t.getProfitLoss()), CustomLogger.LoggerType.INFO);
+        System.out.println("Trader " + t.getFirstName() + " " +  t.getLastName() + "'s Profit Loss:");
+        System.out.println(Double.toString(t.getProfitLoss()));
     }
 
     public static void topBottomTraders() {
@@ -63,9 +64,9 @@ public class Query {
                 .limit(5)
                 .toList();
 
-        CustomLogger.printLogger("Top 5 Traders based on Profit/Loss:", CustomLogger.LoggerType.INFO);
+        System.out.println("Top 5 Traders based on Profit/Loss:");
         top5Traders.forEach(trader ->
-                CustomLogger.printLogger(trader.getFirstName() + ": $" + trader.getProfitLoss(), CustomLogger.LoggerType.INFO)
+                System.out.println(trader.getFirstName() + ": $" + trader.getProfitLoss())
         );
 
         List<Trader> bottom5Traders = Market.getTraderList().stream()
@@ -73,9 +74,9 @@ public class Query {
                 .limit(5)
                 .toList();
 
-        CustomLogger.printLogger("\nBottom 5 Traders based on Profit/Loss:", CustomLogger.LoggerType.INFO);
+        System.out.println("\nBottom 5 Traders based on Profit/Loss:");
         bottom5Traders.forEach(trader ->
-                CustomLogger.printLogger(trader.getFirstName() + ": $" + trader.getProfitLoss(), CustomLogger.LoggerType.INFO)
+                System.out.println(trader.getFirstName() + ": $" + trader.getProfitLoss())
         );
     }
 }

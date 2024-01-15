@@ -41,30 +41,32 @@ public class Transaction {
         this.activeTransaction = activeTransaction;
     }
 
-    public synchronized void buy() throws InterruptedException {
+    public synchronized void buy() {
         getBlockHash();
         Trader trader = findTrader(coin.getWalletAddress());
+        if(trader == null) return;
         Coin c = null;
         for (Coin coin1 : Market.getCoinsList()) {
             if (Objects.equals(coin1.getSymbol(), coin.getCoin()))
                 c = coin1;
         }
-
-        while (!c.buyCoins(trader, coin.getQuantity())) {
-            wait();
-        }
-
+        if(c == null) return;
+        c.buyCoins(trader, coin.getQuantity());
         notifyAll();
     }
 
     public synchronized void sell() throws InterruptedException {
         getBlockHash();
         Trader trader = findTrader(coin.getWalletAddress());
+        if(trader == null) return;
         Coin c = null;
         for (Coin coin1 : Market.getCoinsList()) {
             if (Objects.equals(coin1.getSymbol(), coin.getCoin()))
                 c = coin1;
         }
+
+        if(c == null) return;
+
         while (!c.sellCoins(trader, coin.getQuantity())) {
             wait();
         }
@@ -79,6 +81,7 @@ public class Transaction {
                 c = coin1;
         }
 
+        if(c == null) return;
         c.updatePrice(coin.getPrice());
     }
 
@@ -88,6 +91,8 @@ public class Transaction {
             if (Objects.equals(coin1.getSymbol(), coin.getCoin()))
                 c = coin1;
         }
+
+        if(c == null) return;
 
         c.increaseQuantity(coin.getVolume());
         notifyAll();

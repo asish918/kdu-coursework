@@ -1,7 +1,6 @@
 package org.example;
 
 import org.example.entities.Coin;
-import org.example.parse.JSONParse;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -65,7 +64,7 @@ public class MainTest {
     @Test
     public void testParseCSV() throws IOException {
         // check for Coin.csv
-        Path coinCsvPath = Path.of("src/test/resources/Coin.csv");
+        Path coinCsvPath = Path.of("src/test/resources/coins.csv");
         ArrayList<String[]> expectedCoin = new ArrayList<>();
         expectedCoin.add(new String[]{"0", "1", "Bitcoin", "BTC", "34194.58", "18938712"});
         expectedCoin.add(new String[]{"1", "2", "Ethereum", "ETH", "2270.78", "119292815"});
@@ -167,6 +166,7 @@ public class MainTest {
 
             new Main();
             Main.executeTransactions(transactionArray, latch);
+            assertEquals(1, latch.getCount());
         } catch (IOException | InterruptedException e) {
             // TODO Auto-generated catch block
             fail();
@@ -262,9 +262,7 @@ public class MainTest {
     @Test
     void testExecuteTransactionImplementsRunnable() {
         // Create an instance of org.example.ExecuteTransaction
-        JSONParse jsonNode = null;
-        CountDownLatch latch = new CountDownLatch(1);
-        ExecuteTransaction executeTransaction = new ExecuteTransaction(jsonNode, latch);
+        ExecuteTransaction executeTransaction = new ExecuteTransaction();
 
         // Check if the org.example.ExecuteTransaction class implements the Runnable interface
         assertTrue(executeTransaction instanceof Runnable, "org.example.ExecuteTransaction should implement Runnable");

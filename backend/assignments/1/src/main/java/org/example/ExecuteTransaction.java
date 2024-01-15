@@ -8,11 +8,13 @@ import java.util.concurrent.CountDownLatch;
 
 public class ExecuteTransaction implements Runnable {
     private JSONParse transaction;
-    private CountDownLatch latch;
 
-    public ExecuteTransaction(JSONParse transaction, CountDownLatch latch) {
+    public ExecuteTransaction(JSONParse transaction) {
         this.transaction = transaction;
-        this.latch = latch;
+    }
+
+    public ExecuteTransaction() {
+
     }
 
     @Override
@@ -24,19 +26,13 @@ public class ExecuteTransaction implements Runnable {
         if(Objects.equals(transaction.getType(), "BUY")){
             type = Transaction.Type.BUY;
             Transaction execTransact = new Transaction(transaction.getCoinData(), type);
-            try {
-                execTransact.buy();
-                latch.countDown();
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
-            }
+            execTransact.buy();
         }
         else if(Objects.equals(transaction.getType(), "SELL")) {
             type = Transaction.Type.SELL;
             Transaction execTransact = new Transaction(transaction.getCoinData(), type);
             try {
                 execTransact.sell();
-                latch.countDown();
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
@@ -45,13 +41,11 @@ public class ExecuteTransaction implements Runnable {
             type = Transaction.Type.UPDATE_PRICE;
             Transaction execTransact = new Transaction(transaction.getCoinData(), type);
             execTransact.update();
-            latch.countDown();
         }
         else if(Objects.equals(transaction.getType(), "ADD_VOLUME")){
             type = Transaction.Type.ADD_VOLUME;
             Transaction execTransact = new Transaction(transaction.getCoinData(), type);
             execTransact.add();
-            latch.countDown();
         }
     }
 }

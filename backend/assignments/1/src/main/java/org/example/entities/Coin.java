@@ -13,7 +13,7 @@ public class Coin {
         this.name = name;
         this.symbol = symbol;
         this.price = price;
-        this.quantity = 0;
+        this.quantity = circulatingSupply;
         this.circulatingSupply = circulatingSupply;
     }
 

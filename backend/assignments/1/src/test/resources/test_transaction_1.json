@@ -1,48 +1,25 @@
 [
-    {
-      "type": "BUY",
-      "data": {
-        "coin": "USDC",
-        "quantity": 50,
-        "wallet_address": "0x6048710a582fc9ebc9f46afd0fcda2f8"
-      }
-    },
-    {
-      "type": "BUY",
-      "data": {
-        "coin": "DOGE",
-        "quantity": 100,
-        "wallet_address": "0x9c79042a5f769f6c2395b0d51be7677e"
-      }
-    },
   {
-    "type": "SELL",
-    "data": {
-      "coin": "DOGE",
-      "quantity": 20,
-      "wallet_address": "0x9c79042a5f769f6c2395b0d51be7677e"
-    }
-  },
-  {
-    "type": "SELL",
+    "type": "BUY",
     "data": {
       "coin": "USDC",
-      "quantity": 30,
+      "quantity": 384495,
       "wallet_address": "0x6048710a582fc9ebc9f46afd0fcda2f8"
     }
   },
   {
-    "type": "ADD_VOLUME",
+    "type": "BUY",
     "data": {
       "coin": "DOGE",
-      "volume": 760
+      "quantity": 1637239,
+      "wallet_address": "0x9c79042a5f769f6c2395b0d51be7677e"
     }
   },
   {
-    "type": "ADD_VOLUME",
+    "type": "UPDATE_PRICE",
     "data": {
-      "coin": "USDC",
-      "volume": 760
+      "coin": "DOGE",
+      "price": 0.14804
     }
   }
 ]

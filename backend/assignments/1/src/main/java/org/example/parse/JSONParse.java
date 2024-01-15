@@ -55,6 +55,7 @@ public class JSONParse {
 
         private long volume;
         private long quantity;
+        @JsonProperty("wallet_address")
         private String walletAddress;
         private double price;
 
