@@ -38,7 +38,8 @@ public class GeoCodingImpTest {
 
     /**
      * Negative test case for the geocoding endpoint with an invalid address.
-     * The request is intentionally made with an invalid address to check for a negative response.
+     * The request is intentionally made with an invalid address to check for a
+     * negative response.
      *
      * @throws Exception If an error occurs during the tests.
      */
@@ -48,8 +49,8 @@ public class GeoCodingImpTest {
         int resultCode = HttpStatus.OK.value();
         try {
             MvcResult result = mockMvc.perform(MockMvcRequestBuilders.get("/geocoding")
-                            .param("address", "invalid_address")
-                            .contentType(MediaType.APPLICATION_JSON))
+                    .param("address", "invalid_address")
+                    .contentType(MediaType.APPLICATION_JSON))
                     .andReturn();
 
             resultCode = result.getResponse().getStatus();
@@ -58,7 +59,7 @@ public class GeoCodingImpTest {
             }
         } catch (Exception e) {
             assertTrue(resultCode >= HttpStatus.BAD_REQUEST.value() &&
-                            resultCode < HttpStatus.INTERNAL_SERVER_ERROR.value(),
+                    resultCode < HttpStatus.INTERNAL_SERVER_ERROR.value(),
                     "HTTP Status Code should be 4xx for client error");
 
         } finally {
@@ -70,7 +71,8 @@ public class GeoCodingImpTest {
 
     /**
      * Test case to verify the reverse geocoding endpoint with invalid parameters.
-     * The request is intentionally made with invalid latitude and other scenarios to check for a negative response.
+     * The request is intentionally made with invalid latitude and other scenarios
+     * to check for a negative response.
      *
      * @throws Exception If an error occurs during the tests.
      */
@@ -80,9 +82,9 @@ public class GeoCodingImpTest {
         int resultCode = HttpStatus.OK.value();
         try {
             MvcResult result = mockMvc.perform(MockMvcRequestBuilders.get("/reverse-geocoding")
-                            .param("latitude", "cat")
-                            .param("longitude", "-120.781462")
-                            .contentType(MediaType.APPLICATION_JSON))
+                    .param("latitude", "cat")
+                    .param("longitude", "-120.781462")
+                    .contentType(MediaType.APPLICATION_JSON))
                     .andReturn();
 
             resultCode = result.getResponse().getStatus();
@@ -91,7 +93,7 @@ public class GeoCodingImpTest {
             }
         } catch (Exception e) {
             assertTrue(resultCode >= HttpStatus.BAD_REQUEST.value() &&
-                            resultCode < HttpStatus.INTERNAL_SERVER_ERROR.value(),
+                    resultCode < HttpStatus.INTERNAL_SERVER_ERROR.value(),
                     "HTTP Status Code should be 4xx for client error");
 
         } finally {
@@ -102,7 +104,8 @@ public class GeoCodingImpTest {
     }
 
     /**
-     * Test case to verify the successful retrieval of geocoding information from the external API via the "/geocoding" endpoint.
+     * Test case to verify the successful retrieval of geocoding information from
+     * the external API via the "/geocoding" endpoint.
      * The external API response is mocked.
      *
      * @throws Exception If an error occurs during the tests.
@@ -111,8 +114,8 @@ public class GeoCodingImpTest {
     @Order(2)
     public void testGetGeoCode() throws Exception {
         MvcResult result = mockMvc.perform(MockMvcRequestBuilders.get("/geocoding")
-                        .param("address", "delhi")
-                        .contentType(MediaType.APPLICATION_JSON))
+                .param("address", "delhi")
+                .contentType(MediaType.APPLICATION_JSON))
                 .andReturn();
 
         String resultInStringFormat = result.getResponse().getContentAsString();
@@ -129,7 +132,8 @@ public class GeoCodingImpTest {
         // Add additional checks based on the expected response content
         assertTrue(actualResponse instanceof Map, "Response should be a Map");
 
-        HashMap<?, ?> expectedResponseMap = (HashMap<?, ?>) ((ArrayList<?>) ((HashMap<?, ?>) expectedGeoCodingApiResponse).get("data")).get(0);
+        HashMap<?, ?> expectedResponseMap = (HashMap<?, ?>) ((ArrayList<?>) ((HashMap<?, ?>) expectedGeoCodingApiResponse)
+                .get("data")).get(0);
 
         Double expectedLatitude = (Double) expectedResponseMap.get("latitude");
         Double expectedLongitude = (Double) expectedResponseMap.get("longitude");
@@ -141,9 +145,9 @@ public class GeoCodingImpTest {
         assertEquals(expectedLongitude, actualLongitude, "Longitude should match");
     }
 
-
     /**
-     * Test case to verify the successful retrieval of reverse geocoding information from the external API via the "/reverse-geocoding" endpoint.
+     * Test case to verify the successful retrieval of reverse geocoding information
+     * from the external API via the "/reverse-geocoding" endpoint.
      * The external API response is mocked.
      *
      * @throws Exception If an error occurs during the tests.
@@ -152,9 +156,9 @@ public class GeoCodingImpTest {
     @Order(2)
     public void testGetReverseGeoCode() throws Exception {
         MvcResult result = mockMvc.perform(MockMvcRequestBuilders.get("/reverse-geocoding")
-                        .param("latitude", "37.431155")
-                        .param("longitude", "-120.781462")
-                        .contentType(MediaType.APPLICATION_JSON))
+                .param("latitude", "37.431155")
+                .param("longitude", "-120.781462")
+                .contentType(MediaType.APPLICATION_JSON))
                 .andReturn();
 
         String resultInStringFormat = result.getResponse().getContentAsString();
@@ -168,7 +172,8 @@ public class GeoCodingImpTest {
         // Check that the response body is not empty
         assertNotNull(actualResponse, "Response body should not be null");
 
-        HashMap<?, ?> expectedResponseMap = (HashMap<?, ?>) ((ArrayList<?>) ((HashMap<?, ?>) expectedReverseGeoCodingApiResponse).get("data")).get(0);
+        HashMap<?, ?> expectedResponseMap = (HashMap<?, ?>) ((ArrayList<?>) ((HashMap<?, ?>) expectedReverseGeoCodingApiResponse)
+                .get("data")).get(0);
 
         // Check that the response body is not empty
         assertNotNull(actualResponse, "Response body should not be null");
@@ -179,7 +184,8 @@ public class GeoCodingImpTest {
     }
 
     /**
-     * Test case to verify that the cache is populated and successfully retrieved on the second call for the geocoding endpoint.
+     * Test case to verify that the cache is populated and successfully retrieved on
+     * the second call for the geocoding endpoint.
      *
      * @throws Exception If an error occurs during the tests.
      */
@@ -195,14 +201,16 @@ public class GeoCodingImpTest {
 
         // Ensure that the cache is populated after the first request
         assertNotNull("Cache 'geocoding' should not be null", cacheManager.getCache("geocoding").toString());
-        assertNotNull("Cache entry 'delhi' should not be null", cacheManager.getCache("geocoding").get("delhi").toString());
+        assertNotNull("Cache entry 'delhi' should not be null",
+                cacheManager.getCache("geocoding").get("delhi").toString());
 
         // Clear the cache after the test
         cacheManager.getCache("geocoding").clear();
     }
 
     /**
-     * Test case to verify that the cache is populated and successfully retrieved on the second call for the reverse geocoding endpoint.
+     * Test case to verify that the cache is populated and successfully retrieved on
+     * the second call for the reverse geocoding endpoint.
      *
      * @throws Exception If an error occurs during the tests.
      */
@@ -218,19 +226,22 @@ public class GeoCodingImpTest {
         Object cachedValue = cacheManager.getCache("reverse-geocoding").get(keyForCache.toString());
 
         // Ensure that the cache is populated after the first request
-        assertNotNull("Cache 'reverse-geocoding' should not be null", cacheManager.getCache("reverse-geocoding").toString());
+        assertNotNull("Cache 'reverse-geocoding' should not be null",
+                cacheManager.getCache("reverse-geocoding").toString());
         assertNotNull("Cache entry '[37.431155, -120.781462]' should not be null", (String) cachedValue);
 
         // Call the endpoint again
         hitReverseGeoCodingCache("37.431155", "-120.781462");
 
         // Verify that the cached value is retrieved the second time
-        assertNotNull("Cache 'reverse-geocoding' should not be null", cacheManager.getCache("reverse-geocoding").toString());
+        assertNotNull("Cache 'reverse-geocoding' should not be null",
+                cacheManager.getCache("reverse-geocoding").toString());
         assertNotNull("Cache entry '[37.431155, -120.781462]' should not be null", (String) cachedValue);
     }
 
     /**
-     * Test case to verify that calling the geocoding endpoint with a specific address results in a cache miss.
+     * Test case to verify that calling the geocoding endpoint with a specific
+     * address results in a cache miss.
      * The external API response is mocked, and the cache miss is validated.
      *
      * @throws Exception If an error occurs during the tests.
@@ -261,8 +272,10 @@ public class GeoCodingImpTest {
         hitGeoCodingCache("delhi");
 
         // Verify that the cache miss count has increased for the first call
-        assertNull(cacheManager.getCache("geocoding").get("goa"), "Cache evict unsuccessful - Cache entry must be null");
-        assertNotNull(cacheManager.getCache("geocoding").get("delhi"), "Cache evict unsuccessful - Cache entry must be null");
+        assertNull(cacheManager.getCache("geocoding").get("goa"),
+                "Cache evict unsuccessful - Cache entry must be null");
+        assertNotNull(cacheManager.getCache("geocoding").get("delhi"),
+                "Cache evict unsuccessful - Cache entry must be null");
     }
 
     /**
@@ -278,22 +291,22 @@ public class GeoCodingImpTest {
 
     private void hitGeoCodingCache(String address) throws Exception {
         mockMvc.perform(MockMvcRequestBuilders.get("/geocoding")
-                        .param("address", address)
-                        .contentType(MediaType.APPLICATION_JSON))
+                .param("address", address)
+                .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(MockMvcResultMatchers.status().isOk());
     }
 
     private void hitReverseGeoCodingCache(String latitude, String longitude) throws Exception {
         mockMvc.perform(MockMvcRequestBuilders.get("/reverse-geocoding")
-                        .param("latitude", latitude)
-                        .param("longitude", longitude)
-                        .contentType(MediaType.APPLICATION_JSON))
+                .param("latitude", latitude)
+                .param("longitude", longitude)
+                .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(MockMvcResultMatchers.status().isOk());
     }
 
     @BeforeAll
     public static void setup(@Value("${geocoding-url}") String geoCodingUrl,
-                             @Value("${reverse-geocoding-url}") String reverseGeoCodingUrl) {
+            @Value("${reverse-geocoding-url}") String reverseGeoCodingUrl) {
         geoCodingTestUrl = geoCodingUrl;
         reverseGeoCodingTestUrl = reverseGeoCodingUrl;
 
@@ -307,4 +320,3 @@ public class GeoCodingImpTest {
                 Object.class);
     }
 }
-
