@@ -7,21 +7,33 @@ import org.springframework.web.reactive.function.client.WebClient;
 
 import com.kdu.caching.dtos.ApiDTO;
 
+/**
+ * Service Bean for calling the PositionStack API
+ */
 @Service
 public class ApiService {
-
         private final WebClient webClient;
-
-        @Autowired
         private Environment env;
 
+        /**
+         * WebClient and Environment are injected to access the
+         * application.properties file and WebClient Builder Beans
+         * @param webClientBuilder {@link com.kdu.caching.configs.WebClientConfig  WebClient Bean}
+         */
         @Autowired
-        public ApiService(WebClient.Builder webClientBuilder) {
+        public ApiService(WebClient.Builder webClientBuilder, Environment env) {
+                this.env = env;
                 this.webClient = webClientBuilder.baseUrl(
                                 "http://api.positionstack.com/v1")
                                 .build();
         }
 
+        /**
+         * Takes a Location string as params and forms an
+         * API URL to call and get the Latitude and Longitudes
+         * @param location Location to get the co-ordinates of
+         * @return {@link com.kdu.caching.dtos.ApiDTO Response} of the API call
+         */
         public ApiDTO forwardGeoCodeFromApi(String location) {
                 return webClient.get()
                                 .uri(uriBuilder -> uriBuilder
@@ -35,6 +47,13 @@ public class ApiService {
                                 .block();
         }
 
+        /**
+         * Takes latitude and longitude as params and forms an
+         * API URL to call and get the address
+         * @param latitude Latitude string
+         * @param longitude Longitude string
+         * @return {@link com.kdu.caching.dtos.ApiDTO Response} of the API call
+         */
         public ApiDTO reverseGeoCodeFromApi(String latitude, String longitude) {
                 return webClient.get()
                                 .uri(uriBuilder -> uriBuilder

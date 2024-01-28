@@ -10,6 +10,9 @@ import com.kdu.caching.exceptions.InvalidParamsException;
 
 import lombok.extern.slf4j.Slf4j;
 
+/**
+ * The Global Exception file that handles exceptions thrown by the Controller
+ */
 @ControllerAdvice
 @Slf4j
 public class GlobalExceptions {
@@ -28,6 +31,6 @@ public class GlobalExceptions {
     @ExceptionHandler({ Exception.class })
     public ResponseEntity<String> globalException(Exception e) {
         log.error(e.getMessage(), e);
-        return new ResponseEntity<>("Some error occured", HttpStatus.INTERNAL_SERVER_ERROR);
+        return new ResponseEntity<>("Some unknown error occurred", HttpStatus.INTERNAL_SERVER_ERROR);
     }
 }
