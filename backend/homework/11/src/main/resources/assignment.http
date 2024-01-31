@@ -1,0 +1,112 @@
+#POST
+#Shift Type
+POST http://localhost:8080/shifttype
+Content-Type: application/json
+
+{
+  "uqName": "Morning",
+  "description": "Kuch Bhi",
+  "active": true,
+  "createdBy": "Asish",
+  "updatedBy": "Asish",
+  "timezone": "IST",
+  "tenantId": "8ab74352-bfa5-11ee-bf83-ae8badc2c389"
+}
+
+###
+#Shifts
+POST http://localhost:8080/shifts
+Content-Type: application/json
+
+{
+  "shiftTypeId": "adc89558-c004-11ee-ab45-03071a6fde0c",
+  "name": "Shift1",
+  "dateStart": "2024-01-31",
+  "dateEnd": "2024-02-10",
+  "timeStart": "12:36:08",
+  "timeEnd": "12:46:08",
+  "timezone": "IST",
+  "tenantId": "8ab74352-bfa5-11ee-bf83-ae8badc2c389"
+}
+
+###
+
+#Users
+POST http://localhost:8080/users
+Content-Type: application/json
+
+{
+  "username": "Steve Rogers",
+  "loggedin": 1,
+  "timezone": "IST",
+  "tenantId": "8ab74352-bfa5-11ee-bf83-ae8badc2c389"
+}
+
+###
+
+#All
+POST http://localhost:8080/all
+Content-Type: application/json
+
+{
+  "tenant": {
+    "name": "Thor Odinson",
+    "createdBy": "Asish",
+    "updatedBy": "Asish",
+    "email": "hello@gmail.com"
+  },
+  "shiftType": {
+    "uqName": "Nightime",
+    "description": "Night Owl",
+    "active": true,
+    "createdBy": "Asish",
+    "updatedBy": "Asish",
+    "timezone": "IST"
+  },
+  "shifts": {
+    "name": "Shift2",
+    "dateStart": "2024-01-31",
+    "dateEnd": "2024-02-18",
+    "timeStart": "20:21:50",
+    "timeEnd": "20:31:50",
+    "timezone": "IST"
+  },
+  "users": {
+    "username": "brucebanner",
+    "loggedin": 0,
+    "timezone": "IST"
+  }
+}
+
+#################################################################################
+
+# UPDATE
+#User
+PUT http://localhost:8080/user
+Content-Type: application/json
+
+{
+  "id": "ce23ff30-001f-4d11-9841-1fed4d7ac2d4",
+  "username": "Iron Man",
+  "loggedin": 0,
+  "timezone": "NYC"
+}
+
+#################################################################################
+
+# GET
+#ShiftType
+GET http://localhost:8080/shifttype?tenantId=8ab74352-bfa5-11ee-bf83-ae8badc2c389
+Content-Type: application/json
+
+###
+
+#Shifts
+GET http://localhost:8080/shifts?tenantId=8ab74352-bfa5-11ee-bf83-ae8badc2c389
+Content-Type: application/json
+
+###
+
+#Users
+GET http://localhost:8080/users?tenantId=8ab74352-bfa5-11ee-bf83-ae8badc2c389
+Content-Type: application/json
