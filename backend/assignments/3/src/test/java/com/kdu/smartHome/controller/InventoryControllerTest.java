@@ -1,18 +1,17 @@
-package com.kdu.smartHome.controller;
+package com.kdu.smarthome.controller;
 
-import com.kdu.smartHome.utility.TestSuiteDataManager;
+import com.kdu.smarthome.utility.TestSuiteDataManager;
 import org.hamcrest.Matchers;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
-import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
 
-import static com.kdu.smartHome.utility.RequestBuilders.buildInventoryCreateRequest;
+import static com.kdu.smarthome.utility.RequestBuilders.buildInventoryCreateRequest;
 
 public class InventoryControllerTest {
 

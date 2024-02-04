@@ -1,4 +1,4 @@
-package com.kdu.smartHome.DTO;
+package com.kdu.smarthome.DTO;
 
 
 import lombok.Builder;

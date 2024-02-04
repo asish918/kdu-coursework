@@ -1,6 +1,6 @@
-package com.kdu.smartHome.controller;
+package com.kdu.smarthome.controller;
 
-import com.kdu.smartHome.utility.TestSuiteDataManager;
+import com.kdu.smarthome.utility.TestSuiteDataManager;
 import com.jayway.jsonpath.JsonPath;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
@@ -12,7 +12,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static com.kdu.smartHome.utility.RequestBuilders.buildAddRoomRequest;
+import static com.kdu.smarthome.utility.RequestBuilders.buildAddRoomRequest;
 
 public class RoomControllerTest {
 

@@ -1,8 +1,6 @@
-package com.kdu.smartHome.controller;
+package com.kdu.smarthome.controller;
 
-import com.kdu.smartHome.utility.TestSuiteDataManager;
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import com.kdu.smarthome.utility.TestSuiteDataManager;
 import com.jayway.jsonpath.JsonPath;
 import org.hamcrest.Matchers;
 import org.springframework.http.MediaType;
@@ -17,10 +15,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static com.kdu.smartHome.utility.RequestBuilders.buildAddDeviceRequest;
-import static com.kdu.smartHome.utility.RequestBuilders.buildAddUserToHouseRequestJson;
-import static com.kdu.smartHome.utility.RequestBuilders.buildHouseRequestJson;
-import static com.kdu.smartHome.utility.RequestBuilders.buildUpdateAddressRequest;
+import static com.kdu.smarthome.utility.RequestBuilders.buildAddUserToHouseRequestJson;
+import static com.kdu.smarthome.utility.RequestBuilders.buildHouseRequestJson;
+import static com.kdu.smarthome.utility.RequestBuilders.buildUpdateAddressRequest;
 
 
 public class HouseControllerTest {
