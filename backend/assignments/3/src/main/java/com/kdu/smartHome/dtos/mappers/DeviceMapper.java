@@ -2,14 +2,11 @@ package com.kdu.smartHome.dtos.mappers;
 
 import com.kdu.smartHome.dtos.DeviceDTO;
 import com.kdu.smartHome.entity.Device;
-import org.mapstruct.Mapper;
-import org.mapstruct.Mapping;
-import org.mapstruct.ReportingPolicy;
-
-import java.sql.Time;
 import java.sql.Timestamp;
 
-
+/**
+ * Mapper to convert DTO and Entity of the Device
+ */
 public class DeviceMapper {
     private DeviceMapper() {
 

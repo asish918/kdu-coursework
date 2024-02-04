@@ -6,6 +6,11 @@ import lombok.NoArgsConstructor;
 
 import java.sql.Timestamp;
 
+/**
+ * Inventory table that keeps track of the
+ * devices in the app. A device can be present
+ * in one room at a time
+ */
 @Entity
 @Data
 @NoArgsConstructor

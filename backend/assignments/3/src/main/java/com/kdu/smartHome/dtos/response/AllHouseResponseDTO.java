@@ -1,6 +1,7 @@
 package com.kdu.smartHome.dtos.response;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.kdu.smartHome.dtos.HouseDTO;
 import com.kdu.smartHome.entity.House;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -14,5 +15,5 @@ import java.util.List;
 public class AllHouseResponseDTO {
 
     @JsonProperty("houses")
-    private List<House> houses;
+    private String houses;
 }

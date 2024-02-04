@@ -7,6 +7,10 @@ import lombok.NoArgsConstructor;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Table for the Room.
+ * A room can have multiple devices
+ */
 @Entity
 @Data
 @NoArgsConstructor

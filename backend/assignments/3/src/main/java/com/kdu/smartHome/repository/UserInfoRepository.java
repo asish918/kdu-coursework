@@ -6,6 +6,9 @@ import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
 
+/**
+ * Repository for CRUD opeations on {@link com.kdu.smartHome.entity.UserInfo UserTable}
+ */
 @Repository
 public interface UserInfoRepository extends JpaRepository<UserInfo, Long> {
 	Optional<UserInfo> findByName(String username);

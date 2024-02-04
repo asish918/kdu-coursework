@@ -1,15 +1,14 @@
 package com.kdu.smartHome.entity;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import com.kdu.smartHome.entity.maps.AdminTable;
-
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+/**
+ * User table that stores the
+ * details of all registered users
+ */
 @Entity
 @Data
 @AllArgsConstructor

@@ -10,6 +10,9 @@ import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * Custom implementation for Spring's UserDetails class
+ */
 public class UserInfoDetails implements UserDetails {
 
 	private String name;

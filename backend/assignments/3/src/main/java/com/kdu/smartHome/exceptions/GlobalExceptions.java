@@ -9,8 +9,11 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+/**
+ * Global exception handler for exceptions thrown by the controller layer
+ */
 @ControllerAdvice
-public class GlobalException {
+public class GlobalExceptions {
     @ExceptionHandler({ExpiredJwtException.class})
     public ResponseEntity<String> invalidToken() {
         return new ResponseEntity<>("Invalid/Expired Token", HttpStatus.UNAUTHORIZED);

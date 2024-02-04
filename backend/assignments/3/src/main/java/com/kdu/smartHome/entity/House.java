@@ -4,12 +4,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 import jakarta.persistence.*;
-import org.hibernate.annotations.ManyToAny;
-
-import com.kdu.smartHome.entity.maps.AdminTable;
 
 import lombok.Data;
 
+/**
+ * House entity that has all the details
+ * of a particular house. A user can be in multiple
+ * houses and a house can be for multiple users hence
+ * Many-to-Many relationship. A house can also have
+ * multiple rooms
+ */
 @Entity
 @Data
 public class House {

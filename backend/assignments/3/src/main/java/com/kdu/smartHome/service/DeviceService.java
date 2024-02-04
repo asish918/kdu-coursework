@@ -17,6 +17,9 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
+/**
+ * Service layer for {@link com.kdu.smartHome.entity.Device DeviceEntity}
+ */
 @Service
 @Slf4j
 public class DeviceService {
@@ -53,7 +56,7 @@ public class DeviceService {
         AllInventoryResponseDTO res = new AllInventoryResponseDTO();
         List<Device> deviceList = deviceRepository.findAll();
         List<DeviceDTO> deviceDTOList = deviceList.stream().map(DeviceMapper::entityToDTO).toList();
-        res.setInventory(deviceDTOList);
+        res.setInventory(deviceDTOList.toString());
         return res;
     }
 }

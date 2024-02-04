@@ -2,6 +2,9 @@ package com.kdu.smartHome.exceptions.custom;
 
 import lombok.extern.slf4j.Slf4j;
 
+/**
+ * Exception for Unregistered users
+ */
 @Slf4j
 public class UserNotRegistered extends Exception {
     public UserNotRegistered(String errorMessage, Throwable err) {

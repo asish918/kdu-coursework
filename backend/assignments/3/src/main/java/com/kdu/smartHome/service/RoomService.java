@@ -4,18 +4,18 @@ import com.kdu.smartHome.dtos.RoomDTO;
 import com.kdu.smartHome.dtos.mappers.RoomMapper;
 import com.kdu.smartHome.entity.House;
 import com.kdu.smartHome.entity.Room;
-import com.kdu.smartHome.entity.UserInfo;
 import com.kdu.smartHome.exceptions.custom.QueryEmptyException;
 import com.kdu.smartHome.repository.HouseRepository;
 import com.kdu.smartHome.repository.RoomRepository;
 import com.kdu.smartHome.repository.UserInfoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
+/**
+ * Service layer for {@link com.kdu.smartHome.entity.Room RoomEntity}
+ */
 @Service
 public class RoomService {
     private RoomRepository roomRepository;

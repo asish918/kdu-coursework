@@ -8,7 +8,6 @@ import io.jsonwebtoken.security.Keys;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
-import java.security.Key;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -16,6 +15,9 @@ import java.util.function.Function;
 
 import javax.crypto.SecretKey;
 
+/**
+ * Service to generate a validate JWT tokens for authentication
+ */
 @Component
 public class JwtService {
 
@@ -57,7 +59,6 @@ public class JwtService {
 		return Jwts
 				.parser()
 				.verifyWith(getSignKey())
-				// .setSigningKey(getSignKey())
 				.build()
 				.parseClaimsJws(token)
 				.getBody();

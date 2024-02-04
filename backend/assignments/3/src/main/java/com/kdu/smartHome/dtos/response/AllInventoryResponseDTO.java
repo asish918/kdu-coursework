@@ -11,5 +11,5 @@ import java.util.List;
 @NoArgsConstructor
 public class AllInventoryResponseDTO {
     @JsonProperty("inventory")
-    private List<DeviceDTO> inventory;
+    private String inventory;
 }

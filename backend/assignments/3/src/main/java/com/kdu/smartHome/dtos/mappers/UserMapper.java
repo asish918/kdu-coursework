@@ -7,6 +7,12 @@ import org.mapstruct.ReportingPolicy;
 import com.kdu.smartHome.dtos.UserDTO;
 import com.kdu.smartHome.entity.UserInfo;
 
+/**
+ * I am using the MapStruct library to generate the
+ * mapper for User DTO and Entities automatically. It injects all
+ * of these at compile time hence we get nice type-safety while
+ * writing our code.
+ */
 @Mapper(unmappedTargetPolicy = ReportingPolicy.IGNORE, componentModel = "spring")
 public interface UserMapper {
 

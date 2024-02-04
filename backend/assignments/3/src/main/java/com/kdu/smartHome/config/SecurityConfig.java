@@ -21,6 +21,10 @@ import org.springframework.security.web.AuthenticationEntryPoint;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
+/**
+ * The main security configuration file which
+ * defines all the filters and requestMatchers
+ */
 @Configuration
 @EnableWebSecurity
 @EnableMethodSecurity
@@ -28,6 +32,12 @@ public class SecurityConfig {
 
     @Autowired
     private JwtAuthFilter authFilter;
+
+    /**
+     * Entry point to make sure all the exceptions
+     * of the filters are sent to the controller
+     * layer for exception layer
+     */
     @Autowired
     @Qualifier("delegatedAuthenticationEntryPoint")
     AuthenticationEntryPoint authEntryPoint;
@@ -46,16 +56,7 @@ public class SecurityConfig {
                 .requestMatchers("/api/v1/room/**").authenticated()
                 .requestMatchers("/api/v1/inventory/**").authenticated()
                 .requestMatchers("/api/v1/device/**").authenticated()
-                // .requestMatchers("/auth/test", "/auth/register",
-                // "/auth/generateToken").permitAll()
                 .and()
-                // .authorizeHttpRequests().requestMatchers("/auth/user/**").authenticated()
-                // .and()
-                // .authorizeHttpRequests().requestMatchers("/auth/admin/**").authenticated()
-                // .and()
-                // .authorizeHttpRequests().requestMatchers("/user/**",
-                // "/product/**").permitAll()
-                // .and()
                 .sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
@@ -65,6 +66,11 @@ public class SecurityConfig {
                 .authenticationEntryPoint(authEntryPoint).and().build();
     }
 
+    /**
+     * The Password Encoder being used to encode all the passwords in the app.
+     * We are using the BCrypt Library.
+     * @return An instance of the BCrypt library.
+     */
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
