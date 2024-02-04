@@ -11,6 +11,8 @@ import com.kdu.smarthome.utils.CheckDeviceCredentials;
 import com.kdu.smarthome.utils.DateTimeStampConverter;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -29,6 +31,11 @@ public class DeviceService {
         this.deviceRepository = deviceRepository;
     }
 
+    /**
+     * Clear the cache if an item is updated
+     * @param deviceDTO Device details
+     */
+    @CacheEvict(value="devices", allEntries=true)
     public void addItemToInventory(DeviceDTO deviceDTO) {
         deviceDTO.setManufactureDateTime(DateTimeStampConverter.convertTimestampFormat(deviceDTO.getManufactureDateTime()));
         Device device = DeviceMapper.dtoToEntity(deviceDTO);
@@ -52,6 +59,11 @@ public class DeviceService {
         }
     }
 
+    /**
+     * Added caching for fast response times of get requests.
+     * @return List of all devices
+     */
+    @Cacheable("devices")
     public AllInventoryResponseDTO getAllDevices() {
         AllInventoryResponseDTO res = new AllInventoryResponseDTO();
         List<Device> deviceList = deviceRepository.findAll();

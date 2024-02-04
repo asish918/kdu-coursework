@@ -16,6 +16,8 @@ import com.kdu.smarthome.entity.maps.AdminTable;
 import com.kdu.smarthome.exceptions.custom.*;
 import com.kdu.smarthome.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
@@ -60,6 +62,7 @@ public class HouseService {
      * @return Details of the created House
      */
 
+    @CacheEvict(value="houses", allEntries=true)
     public House addHouse(HouseDTO houseDTO) {
         House house = houseMapper.dtoToEntity(houseDTO);
         House houseRes = null;
@@ -90,6 +93,7 @@ public class HouseService {
      * @return DTO Response
      * @throws QueryEmptyException If the house doesn't exist
      */
+    @Cacheable("houses")
     public RoomDeviceDetailsResponse getHouseDetails(String houseId) throws QueryEmptyException {
         Optional<House> houseRes = houseRepository.findById(Long.parseLong(houseId));
 
@@ -122,6 +126,7 @@ public class HouseService {
      * @throws NonAdminException When a non-admin tries to add a user
      * @throws UserNotRegistered When an admin tries to add unregistered users to the house
      */
+    @CacheEvict(value="houses", allEntries=true)
     public void addUserToHouse(String houseId, UserHouseDTO userHouseDTO) throws NonAdminException, UserNotRegistered {
          Authentication authentication =
          SecurityContextHolder.getContext().getAuthentication();
@@ -154,6 +159,7 @@ public class HouseService {
         }
     }
 
+    @Cacheable("houses")
     public AllHouseResponseDTO getAllHouses() {
         AllHouseResponseDTO res = new AllHouseResponseDTO();
         List<House> houseList = houseRepository.findAll();
@@ -162,6 +168,7 @@ public class HouseService {
         return res;
     }
 
+    @CacheEvict(value="houses", allEntries=true)
     public void updateAddress(String id, String address) {
         houseRepository.updateAddressByIdEquals(address, Long.parseLong(id));
     }
