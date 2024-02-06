@@ -1,0 +1,288 @@
+/* Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300;1,700&display=swap");
+
+/* Community Reset CSS */
+@import url("/normalize.css");
+* {
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  width: 100%;
+  height: 100%;
+  font-family: "Lato", sans-serif;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+}
+
+/* HERO SECTION STYLES */
+.hero_section {
+  width: 100%;
+  height: 60%;
+  color: white;
+  background-image: url(/hero_bg.png);
+}
+
+.hero_section a {
+  text-decoration: none;
+  position: relative;
+  bottom: 12px;
+  color: white;
+}
+
+#logo {
+  margin-top: 10px;
+}
+
+.hero_section input {
+  position: relative;
+  bottom: 15px;
+  border: none;
+  border-radius: 20px;
+  outline: none;
+  padding: 10px;
+}
+
+.hero_section a:hover {
+  color: red;
+  cursor: pointer;
+}
+
+.hero_section > nav {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.hero_section ol {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.hero_section nav li {
+  display: inline;
+  padding: 20px;
+}
+
+.hero_section article {
+  font-family: Lato, sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  font-size: 32px;
+  width: 60%;
+  margin: 0 auto;
+}
+
+/* MAIN CONTENT STYLES */
+main {
+  width: 100%;
+}
+
+main .details {
+  padding: 0 10%;
+  padding-bottom: 20px;
+  height: 60%;
+  font-family: Lato, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 18px;
+  letter-spacing: 0.23px;
+  line-height: 1.37em;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+main .details div {
+  width: 70%;
+  display: inline-block;
+  position: relative;
+  bottom: 150px;
+}
+
+main .details div > p {
+  margin: 30px 0;
+}
+
+main .details .figures {
+  width: 20%;
+  position: relative;
+  top: 1px;
+  display: inline-block;
+}
+
+main .details .figures ul {
+  padding-left: 100px;
+  list-style: none;
+}
+
+.quotes {
+  width: 100%;
+  height: 400px;
+  color: white;
+  background-image: url(/quotes_bg.png);
+}
+
+.quotes-person {
+  width: 30%;
+  height: 100%;
+  display: inline-block;
+  position: relative;
+  top: 80px;
+  left: 90px;
+}
+
+.quotes-person img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+
+.quotes-person p {
+  text-wrap: wrap;
+  width: 100px;
+  text-align: center;
+}
+
+.quotes-person ~ blockquote {
+  position: relative;
+  width: 50%;
+  top: 80px;
+  margin-left: 50px;
+  line-height: 1.2em;
+  font-family: Lato, sans-serif;
+  font-style: normal;
+  font-size: 32px;
+  font-weight: 600;
+  display: inline-block;
+}
+
+blockquote::before {
+  content: '"';
+}
+
+blockquote::after {
+  content: '"';
+}
+
+.details h1 {
+  font-weight: bolder;
+  color: #26266d;
+}
+
+.figures h1 {
+  font-weight: bolder;
+  color: #26266d;
+}
+
+.quotes + article {
+  text-align: center;
+  width: 100%;
+  position: relative;
+  bottom: 100px;
+  background-color: #130739;
+  color: white;
+  letter-spacing: 0.012987em;
+  font-family: Lato, sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 50px;
+  padding-bottom: 20px;
+}
+
+.quotes + article p {
+  font-family: Lato, sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  font-size: 32px;
+}
+
+/* CALL TO ACTION STYLES */
+
+.contact {
+  position: relative;
+  bottom: 80px;
+  width: 100%;
+}
+
+.contact > h1 {
+  width: 100%;
+  text-align: center;
+}
+
+form {
+  width: 70%;
+  margin: 0 auto;
+}
+
+form div {
+  padding: 20px 0;
+}
+
+textarea {
+  border-radius: 20px;
+}
+
+form input {
+  border-radius: 20px;
+  outline: none;
+  padding: 10px;
+  border: 1px solid black;
+}
+
+button {
+  cursor: pointer;
+  color: red;
+  background-color: transparent;
+  border: 1px red solid;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+button:hover {
+  background-color: rgba(255, 0, 0, 0.306);
+}
+
+/* FOOTER STYLES */
+
+footer {
+  color: white;
+  background-color: #130739;
+  box-sizing: border-box;
+  padding-left: 150px;
+  width: 100%;
+}
+
+footer > section {
+  width: 50%;
+  margin: 0 auto;
+}
+
+footer pre {
+  display: inline-block;
+  position: relative;
+  bottom: 30px;
+}
+
+footer section > div {
+  display: inline-block;
+}
+
+footer section > aside {
+  display: inline-block;
+  position: relative;
+  bottom: 30px;
+}
+
+footer ul {
+  list-style: none;
+  margin: 0 10px;
+}
+
+.copyright {
+  position: relative;
+  bottom: 25px;
+  margin-left: 10px;
+}

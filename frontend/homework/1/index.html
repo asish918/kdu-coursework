@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta property="og:title" content="Kickdrum Homepage" />
+    <meta property="og:url" content="https://www.kickdrum.com/" />
+    <meta property="og:image" content="/logo.png" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Kickdrum Clone</title>
+    <!-- For using Fontawesome Library -->
+    <script
+      src="https://kit.fontawesome.com/fed36a9c9d.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <section class="hero_section">
+      <header>
+        <!-- NAVBAR -->
+        <nav>
+          <ol>
+            <li>
+              <a href="#" target="_blank">SERVICES</a>
+            </li>
+            <li>
+              <a href="#" target="_parent"> RESULTS </a>
+            </li>
+            <li>
+              <a href="#" target="_top">TEAM</a>
+            </li>
+            <li>
+              <img id="logo" src="/logo.png" alt="Kickdrum Logo" />
+            </li>
+            <li>
+              <a href="#" target="_self">RESOURCES</a>
+            </li>
+            <li>
+              <a href="#" target="_self">CAREERS</a>
+            </li>
+            <li>
+              <a href="#" target="_self">CONTACT</a>
+            </li>
+            <li>
+              <input type="search" placeholder="Search" />
+            </li>
+          </ol>
+        </nav>
+      </header>
+
+      <article>
+        <h1>Mitigate technical risk</h1>
+        <h3>Maximize business impact</h3>
+        <p>
+          We partner with technology investors and executives to accelerate
+          enterprise value.
+        </p>
+      </article>
+    </section>
+
+    <main>
+      <!-- HERO Section -->
+      <section class="details">
+        <div>
+          <h1>Builders. Not box checkers.</h1>
+          <p>
+            We are enterprise-grade engineers, architects, and strategists. With
+            a design-driven philosophy, our development approach decreases
+            technical debt, improves customer experiences, and increases
+            enterprise value.
+          </p>
+          <p>
+            We partner. with both investors and their portfolio companies across
+            the full lifecycle - from diligence through divestiture – to
+            identify, plan, and execute technology strategies for revenue
+            growth, profit optimization, and value enhancement.
+          </p>
+          <p>
+            Our work pre- and post-transaction is investment-driven - from our
+            proven maturity assessment model to our value creation solutions, we
+            bring real-world operating wisdom to your process.
+          </p>
+        </div>
+
+        <div class="figures">
+          <ul>
+            <li>
+              <h1>&dollar;20B</h1>
+              <p>Total Transaction Volume</p>
+            </li>
+            <li>
+              <h1>150+</h1>
+              <p>Transactions Advised</p>
+            </li>
+            <li>
+              <h1>22+</h1>
+              <p>Former CXOs on our US-based team</p>
+            </li>
+            <li>
+              <h1>&dollar;150M</h1>
+              <p>AWS Cloud Contracts</p>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- QUOTES -->
+      <section class="quotes">
+        <div class="quotes-person">
+          <img src="/mike-biwer.jpeg" alt="Quotes Person" />
+          <p>
+            <span>Mike Biwer</span>
+            CEO at Cavallo
+          </p>
+        </div>
+        <blockquote cite="https://www.cavallo.com/">
+          Kickdrum's team is world class. They delivered on several large and
+          complex challenges that helped transform the value of our business and
+          the excitement of our customers.
+        </blockquote>
+      </section>
+
+      <article>
+        <h1>Value creation powered by technology.</h1>
+        <p>We are technology pioneers with extensive real-world expertise.</p>
+      </article>
+
+      <!-- CALL TO ACTION -->
+      <section class="contact">
+        <h1>Contact us</h1>
+        <form action="#">
+          <div>
+            <label for="email_input">
+              <b>Email</b>
+            </label>
+            <input
+              type="text"
+              name="email_input"
+              id="email_input"
+              placeholder="Enter your email"
+              required
+            />
+          </div>
+
+          <div>
+            <label for="phone_number">
+              <b> Phone Number </b>
+            </label>
+            <input
+              type="tel"
+              name="phone_numer"
+              id="phone_number"
+              placeholder="Enter your phone number"
+            />
+            <label for="phone_number">
+              <b> Random Number </b>
+            </label>
+            <input
+              type="number"
+              name="random_number"
+              id="random_number"
+              placeholder="Enter random number"
+            />
+            <label for="phone_number">
+              <b> Password </b>
+            </label>
+            <input
+              type="password"
+              name="password"
+              id="password"
+              placeholder="Enter random password"
+            />
+          </div>
+
+          <div>
+            <label for="query">
+              <b> Your Query </b>
+            </label>
+            <textarea
+              required
+              name="query"
+              id="query"
+              cols="30"
+              rows="1"
+            ></textarea>
+          </div>
+
+          <div>
+            <p>Subscribe to our newsletter?</p>
+            <label for="subscribe">Yes</label>
+            <input type="radio" id="subscribe" name="subscribe" value="yes" />
+            <label for="subscribe">No</label>
+            <input type="radio" id="subscribe" name="subscribe" value="no" />
+          </div>
+
+          <div>
+            <p>Your Domain of interest</p>
+            <label for="domain">Private Equity</label>
+            <input
+              type="checkbox"
+              id="domain"
+              name="domain"
+              value="Private Quity"
+            />
+            <label for="domain">Cloud Migrations</label>
+            <input
+              type="checkbox"
+              id="domain"
+              name="domain"
+              value="Cloud Migrations"
+            />
+            <label for="domain">Product Development</label>
+            <input
+              type="checkbox"
+              id="domain"
+              name="domain"
+              value="Product Development"
+            />
+          </div>
+
+          <div>
+            <label for="cloud">Your Cloud Provider</label>
+            <select name="cloud" id="cloud">
+              <option value="aws">Amazon Web Services</option>
+              <option value="azure">Microsoft Azure</option>
+              <option value="gcp">Google Cloud Provider</option>
+            </select>
+          </div>
+
+          <button type="submit">Submit</button>
+          <button type="reset">Reset</button>
+        </form>
+      </section>
+    </main>
+    <!-- FOOTER -->
+
+    <footer>
+      <section>
+        <pre>Kickdrum</pre>
+
+        <div>
+          <ul>
+            <li>Home</li>
+            <li>Team</li>
+            <li>Careers</li>
+            <li>Contact</li>
+            <li>Privacy</li>
+          </ul>
+        </div>
+
+        <aside>
+          <div class="text-align-left">
+            <a href="https://www.facebook.com/KickdrumTech/"
+              ><i
+                class="fa fa-facebook fa-1x fa-fw"
+                aria-hidden="true"
+                style="color: #fff"
+              ></i></a
+            >&nbsp;&nbsp;
+            <a href="https://twitter.com/KickdrumTech"
+              ><i
+                class="fa fa-twitter fa-1x fa-fw"
+                aria-hidden="true"
+                style="color: #fff"
+              ></i></a
+            >&nbsp;&nbsp;
+            <a href="https://www.linkedin.com/company/kickdrum"
+              ><i
+                class="fa fa-linkedin fa-1x fa-fw"
+                aria-hidden="true"
+                style="color: #fff"
+              ></i></a
+            >&nbsp;&nbsp;
+            <a href="https://m.kickdrum.com/"
+              ><i
+                class="fa fa-medium fa-1x fa-fw"
+                aria-hidden="true"
+                style="color: #fff"
+              ></i></a
+            >&nbsp;&nbsp;
+          </div>
+        </aside>
+
+        <div class="copyright">
+          <p>&copy;Kickdrum Technology Group LLC</p>
+          <sub>All rights reserved</sub>
+        </div>
+      </section>
+    </footer>
+  </body>
+</html>
