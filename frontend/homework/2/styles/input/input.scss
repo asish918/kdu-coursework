@@ -1,21 +1,23 @@
+@use "./reset";
+@use "./flex";
+
+@import "variables";
 @import url("https://fonts.googleapis.com/css2?family=Protest+Strike&display=swap");
-@use "../utilities/reset";
-@use "../utilities/flex";
 
 html {
-  background-color: rgb(205, 204, 204);
+  font-family: "Protest Strike", sans-serif;
+  background-color: $SECONDARY_BG_COLOR;
 }
 
 body {
   width: 70%;
   height: 90%;
-  display: flex;
-  flex-direction: column;
+  @extend %flex-column;
   gap: 50px;
   padding: 50px;
   margin: 0 auto;
   transform: translateY(30px);
-  background-color: white;
+  background-color: $BG_COLOR;
   border-radius: 20px;
 }
 
@@ -24,7 +26,7 @@ header h1 {
 }
 
 header p {
-  color: gray;
+  color: $SECONDARY_TEXT_COLOR;
 }
 
 main {
@@ -41,14 +43,14 @@ main section {
 
 main section p {
   font-size: 2.5rem;
-  display: flex;
+  @extend %flex-row;
   line-height: 2.8rem;
   align-items: flex-start;
 
   span {
     font-size: 1.3rem;
     line-height: 1.8rem;
-    color: gray;
+    color: $SECONDARY_TEXT_COLOR;
   }
 }
 
@@ -59,8 +61,7 @@ main section img {
 
 main aside {
   flex-basis: 50%;
-  display: flex;
-  flex-direction: column;
+  @extend %flex-column;
   justify-content: flex-end;
 
   p {
@@ -68,22 +69,21 @@ main aside {
   }
 
   span {
-    color: gray;
+    color: $SECONDARY_TEXT_COLOR;
   }
 }
 
 .weather_info {
   margin-top: 50px;
   flex-grow: 1;
-  display: flex;
+  @extend %flex-row;
   flex-wrap: wrap;
 }
 
 .weather_info div {
   width: fit-content;
   flex-grow: 1;
-  display: flex;
-  flex-direction: column;
+  @extend %flex-column;
   justify-content: space-around;
 
   h1 {
@@ -97,7 +97,7 @@ main aside {
   }
 
   p {
-    display: flex;
+    @extend %flex-row;
     justify-content: space-between;
     width: 50%;
     margin: 0 auto;
@@ -112,5 +112,13 @@ main aside {
     span {
       font-size: 1rem;
     }
+  }
+}
+
+footer {
+  text-align: center;
+
+  span {
+    text-decoration: underline;
   }
 }
