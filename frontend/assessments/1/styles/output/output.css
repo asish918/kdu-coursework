@@ -104,6 +104,7 @@ body {
 .navbar__hamburger {
   padding-inline: 5px;
   font-size: 1.2rem;
+  cursor: pointer;
 }
 .navbar__elements {
   display: none;
@@ -173,7 +174,8 @@ body {
     flex-direction: column;
   }
   .hero__section h1 {
-    font-size: 4rem;
+    width: 60%;
+    font-size: 3.2rem;
   }
 
   .navbar__elements {
@@ -182,6 +184,13 @@ body {
     list-style: none;
     display: flex;
     justify-content: space-between;
+  }
+  .navbar__elements li {
+    transition: all 0.2s ease-in-out;
+  }
+  .navbar__elements li:hover {
+    cursor: pointer;
+    color: #6c2d39;
   }
 
   .navbar__hamburger {

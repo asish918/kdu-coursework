@@ -1,0 +1,126 @@
+@use "../sass/reset" as *;
+@use "../sass/colors" as *;
+@use "../sass/mixins" as *;
+
+body {
+  background-color: $main_color;
+}
+
+// Navbar Styles
+.navbar {
+  max-width: 800px;
+  margin-inline: auto;
+  display: flex;
+  align-items: center;
+  padding-inline: 10px;
+  padding-block: 10px;
+  justify-content: space-between;
+  font-size: 1.5rem;
+
+  &__hamburger {
+    padding-inline: 5px;
+    font-size: 1.2rem;
+    cursor: pointer;
+  }
+
+  &__elements {
+    display: none;
+  }
+
+  // Displaying the navbar elements onHovering the Hamburger icon
+  &__hamburger:hover ~ &__elements {
+    position: absolute;
+    top: 10%;
+    right: 10px;
+    display: block;
+    width: fit-content;
+    border-radius: 10px;
+    background-color: #c1576a;
+    padding: 10px;
+    list-style: none;
+  }
+}
+
+// Hero Styles
+.hero {
+  max-width: 800px;
+  margin-inline: auto;
+  padding-inline: 10px;
+  padding-block: 50px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+  &__img {
+    width: 100%;
+  }
+
+  &__section {
+    h1 {
+      font-size: 3rem;
+      width: 50%;
+      margin-bottom: 15px;
+    }
+
+    p {
+      margin-bottom: 30px;
+      font-size: 1.5rem;
+    }
+  }
+
+  &__button {
+    @include button_theme;
+
+    &:hover {
+      cursor: pointer;
+      background-color: $hover_color;
+    }
+  }
+}
+
+// One media query defined for widths above the mobile breakpoint. 
+// My layout adapts to increasing widths automatically
+@media (min-width: 576px) {
+  .navbar {
+    font-size: 1.2rem;
+  }
+
+  .hero {
+    flex-direction: row-reverse;
+
+    &__img {
+      width: 50%;
+    }
+
+    &__section {
+      h1 {
+        width: 60%;
+        font-size: 3.2rem;
+      }
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-direction: column;
+    }
+  }
+
+  .navbar__elements {
+    flex-basis: 50%;
+    gap: 10px;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+
+    & li {
+      transition: all 0.2s ease-in-out;
+      &:hover {
+        cursor: pointer;
+        color: $hover_color;
+      }
+    }
+  }
+
+  .navbar__hamburger {
+    display: none;
+  }
+}
