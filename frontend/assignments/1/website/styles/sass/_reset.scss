@@ -1,0 +1,10 @@
+@use "./fonts" as *;
+@use "./colors" as *;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: $primary-text-color;
+  font-family: Chirp, sans-serif;
+}

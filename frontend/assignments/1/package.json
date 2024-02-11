@@ -1,0 +1,19 @@
+{
+  "name": "1",
+  "version": "1.0.0",
+  "description": "Assignment 1",
+  "source": "website/index.html",
+  "scripts": {
+    "start": "parcel",
+    "build": "parcel build"
+  },
+  "keywords": [],
+  "author": "Asish Mahapatra",
+  "license": "ISC",
+  "devDependencies": {
+    "@parcel/transformer-sass": "^2.11.0",
+    "cypress": "^13.6.4",
+    "cypress-visual-regression": "^5.0.0",
+    "parcel": "^2.11.0"
+  }
+}

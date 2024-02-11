@@ -29,7 +29,7 @@ describe("Posts Section", () => {
     cy.get(".tweet-box").should("be.visible");
 
     // Type text in the tweet-box
-    cy.get(".post-input").type(tweetText);
+    cy.get("#tweet-input").type(tweetText);
 
     // Check if the 'tweet-btn' button is enabled
     cy.get("#tweet-btn").should("not.be.disabled");

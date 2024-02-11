@@ -14,7 +14,7 @@ describe("Like Post", () => {
     cy.get(".tweet-box").should("be.visible");
 
     // Type text in the tweet-box
-    cy.get(".post-input").type(tweetText);
+    cy.get("#tweet-input").type(tweetText);
 
     // Check if the 'tweet-btn' button is enabled
     cy.get("#tweet-btn").should("not.be.disabled");
@@ -31,10 +31,10 @@ describe("Like Post", () => {
    */
   const likePost = () => {
     // Ensure the posts container is visible in the viewport
-    cy.get(".posts").should("be.visible");
+    cy.get("#post-wrapper").should("be.visible");
 
     // Like the first post
-    cy.get(".posts").children().first().find(".like-post").click();
+    cy.get("#post-wrapper").children().first().find(".like-button").click();
 
     // Wait for the like to be processed
     cy.wait(2000);
@@ -45,7 +45,7 @@ describe("Like Post", () => {
    */
   const compareLikedPostSnapshot = () => {
     // Get the initial count of likes on the first post
-    cy.get(".posts")
+    cy.get("#post-wrapper")
       .children()
       .first()
       .find(".likes-count")
@@ -53,13 +53,13 @@ describe("Like Post", () => {
       .as("initialLikeCount");
 
     // Compare the screenshot of the liked post
-    cy.get(".posts")
+    cy.get("#post-wrapper")
       .children()
       .first()
       .compareSnapshot("provided-liked-post", 0.2);
 
     // Get the final count of likes on the first post after unliking
-    cy.get(".posts")
+    cy.get("#post-wrapper")
       .children()
       .first()
       .find(".likes-count")
@@ -77,19 +77,19 @@ describe("Like Post", () => {
    */
   const unlikePostAndCompareSnapshot = () => {
     // Click the first liked post again to unlike it
-    cy.get(".posts").children().first().find(".unlike-post").click();
+    cy.get("#post-wrapper").children().first().find(".unlike-post").click();
 
     // Wait for the unlike to be processed (adjust as needed)
     cy.wait(2000);
 
     // Compare the screenshot of the post after unliking
-    cy.get(".posts")
+    cy.get("#post-wrapper")
       .children()
       .first()
       .compareSnapshot("provided-unliked-post", 0.2);
 
     // Get the final count of likes on the first post after unliking
-    cy.get(".posts")
+    cy.get("#post-wrapper")
       .children()
       .first()
       .find(".likes-count")

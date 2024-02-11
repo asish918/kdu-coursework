@@ -1,0 +1,517 @@
+@use "./sass" as *;
+
+html {
+  height: 100%;
+}
+
+body {
+  background-color: $background-color;
+  height: 100%;
+}
+
+.main_wrapper {
+  display: flex;
+  max-width: 1000px;
+  margin-inline: auto;
+  height: 100%;
+}
+
+.floating-tweet-box-icon {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  padding: 20px;
+  background-color: $primary-color;
+  border: none;
+  display: none;
+}
+
+.mobile-nav {
+  display: none;
+  padding: 10px;
+  flex-basis: 100%;
+
+  &__actions {
+    display: none;
+  }
+}
+
+.profile-icon {
+  border: none;
+  background-color: transparent;
+
+  img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+  }
+}
+
+.navigation-section {
+  flex-basis: 40%;
+  padding-inline: 20px;
+  padding-block: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 25px;
+  min-height: 100vh;
+
+  &__plus-icon {
+    display: none;
+  }
+
+  &__logo {
+    width: 40px;
+    height: 55px;
+    padding-block: 10px;
+  }
+
+  &__logo + &__button {
+    font-weight: 900;
+  }
+
+  &__button {
+    font-size: 1.5rem;
+    width: 10%;
+    min-height: fit-content;
+    display: flex;
+    background-color: transparent;
+    border: none;
+    align-items: center;
+    gap: 15px;
+    position: relative;
+
+    img {
+      width: 30px;
+      height: 30px;
+    }
+  }
+
+  &__button:nth-child(10) {
+    display: none;
+  }
+
+  &__button:nth-child(11) {
+    display: none;
+  }
+
+  &__button:nth-child(15) {
+    display: none;
+  }
+
+  &__dot {
+    position: absolute;
+    left: 20px;
+    top: -5px;
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    background-color: $primary-color;
+  }
+
+  &__button--primary {
+    font-size: 1.2rem;
+    background-color: $primary-color;
+    border: none;
+    border-radius: 30px;
+    height: fit-content;
+    padding-block: 15px;
+    font-weight: 900;
+    margin-bottom: 50px;
+  }
+
+  &__profile {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 15px;
+
+    h1 {
+      font-size: 1rem;
+    }
+  }
+
+  &__profile_image {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+  }
+
+  &__more-icon {
+    width: 30px;
+    height: 30px;
+  }
+
+  &__profile_info {
+    text-align: left;
+    display: flex;
+    gap: 10px;
+
+    p {
+      color: $secondary-text-color;
+    }
+  }
+
+  &__follower_info {
+    display: none;
+  }
+}
+
+.post_section {
+  margin-top: 10px;
+  width: 100%;
+  flex-grow: 1;
+}
+
+.tweet-box {
+  display: flex;
+  padding-inline: 20px;
+  padding-block: 12px;
+  gap: 10px;
+
+  &__profile {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+  }
+
+  &__input {
+    flex-grow: 1;
+
+    input {
+      flex-basis: 100%;
+      width: 100%;
+      outline: none;
+      border: none;
+      background-color: transparent;
+      font-size: 1.5rem;
+      height: fit-content;
+      padding-block: 12px;
+      letter-spacing: 0.04rem;
+
+      &::placeholder {
+        color: $secondary-text-color;
+      }
+    }
+  }
+
+  &__mobile-action {
+    display: none;
+  }
+
+  &__actions_mobile {
+    display: none;
+  }
+
+  &__actions {
+    padding-block: 15px;
+    display: flex;
+    justify-content: space-between;
+
+    img {
+      width: 25px;
+      height: 25px;
+    }
+  }
+
+  &__icons {
+    display: flex;
+    align-items: center;
+    width: 40%;
+    justify-content: space-between;
+  }
+
+  &__button--primary {
+    border: none;
+    border-radius: 25px;
+    width: 60px;
+    background-color: $secondary-color;
+    padding-block: 10px;
+    font-size: 1rem;
+    font-weight: 900;
+  }
+}
+
+.posts {
+  display: flex;
+  padding-block: 15px;
+  padding-inline: 15px;
+  gap: 15px;
+
+  &__profile {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+  }
+
+  &__info {
+    flex-grow: 1;
+  }
+
+  &__title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    span {
+      color: $secondary-text-color;
+      flex-grow: 1;
+    }
+
+    p {
+      color: $secondary-text-color;
+    }
+
+    img {
+      width: 30px;
+      height: 30px;
+    }
+  }
+
+  &__content {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+
+    p {
+      display: inline-block;
+
+      &::after {
+        content: "\00a0";
+      }
+    }
+
+    span {
+      color: $primary-color;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    justify-content: space-between;
+
+    img {
+      width: 30px;
+      height: 30px;
+    }
+
+    svg {
+      width: 30px;
+      height: 30px;
+    }
+
+    span {
+      font-size: 1.2rem;
+      color: $secondary-text-color;
+    }
+  }
+
+  &__subactions {
+    display: flex;
+    gap: 10px;
+  }
+}
+
+.like-button__wrapper {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+
+@media (max-width: 414) {
+  .main_wrapper {
+    display: block;
+    flex-wrap: wrap;
+  }
+
+  .navigation-section {
+    padding-block: 15px;
+    position: fixed;
+    top: 0px;
+    display: none;
+    z-index: 100;
+    background-color: black;
+    width: 90%;
+    border: none;
+    justify-content: flex-start;
+    gap: 25px;
+
+    &__logo {
+      display: none;
+    }
+
+    &__profile {
+      order: -10;
+    }
+
+    &__more-icon {
+      display: none;
+    }
+
+    &__plus-icon {
+      display: block;
+      width: 30px;
+      height: 30px;
+      border: 1px solid $primary-text-color;
+      border-radius: 50%;
+      padding: 5px;
+    }
+
+    &__profile_info {
+      display: flex;
+      flex-direction: column;
+    }
+
+    &__button--primary {
+      display: none;
+    }
+
+    &__follower_info {
+      width: 100%;
+      display: flex;
+      gap: 10px;
+
+      span {
+        font-weight: 900;
+      }
+    }
+
+    &__button:nth-child(2) {
+      display: none;
+    }
+
+    &__button:nth-child(3) {
+      display: none;
+    }
+
+    &__button:nth-child(4) {
+      display: none;
+    }
+
+    &__button:nth-child(5) {
+      display: none;
+    }
+
+    &__button:nth-child(6) {
+      display: none;
+    }
+
+    &__button:nth-child(13) {
+      order: -9;
+    }
+
+    &__button:nth-child(12) {
+      order: -8;
+    }
+
+    &__button:nth-child(10) {
+      display: flex;
+    }
+
+    &__button:nth-child(11) {
+      font-size: 1.4rem;
+      width: 100%;
+      display: flex;
+    }
+
+    &__button:nth-child(14) {
+      display: none;
+    }
+
+    &__button:nth-child(15) {
+      display: flex;
+    }
+  }
+
+  .tweet-box {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+
+    &__actions {
+      margin-top: 10px;
+      margin-left: -60px;
+      width: 100%;
+
+      img {
+        margin-inline: 3px;
+      }
+    }
+
+    &__mobile-action {
+      margin-top: 30px;
+      display: flex;
+      width: 100%;
+      align-items: center;
+      gap: 10px;
+      margin-left: -60px;
+      padding-bottom: 15px;
+      border-bottom: 1px solid $secondary-text-color;
+
+      p {
+        font-size: 1rem;
+        color: $primary-color;
+      }
+
+      img {
+        width: 20px;
+        height: 20px;
+      }
+    }
+
+    &__button--primary {
+      position: absolute;
+      top: 3px;
+      right: 13px;
+      border: none;
+      border-radius: 25px;
+      width: 60px;
+      background-color: $primary-color;
+      padding-block: 10px;
+      font-size: 1rem;
+      font-weight: 900;
+    }
+  }
+
+  .floating-tweet-box-icon {
+    display: block;
+  }
+
+  .mobile-nav {
+    display: block;
+    height: fit-content;
+
+    &__actions {
+      display: none;
+      width: 100%;
+      padding-left: 5px;
+      padding-right: 80px;
+      margin-bottom: 10px;
+      justify-content: space-between;
+
+      p {
+        font-weight: 900;
+        color: $primary-color;
+      }
+
+      img {
+        width: 22px;
+        height: 22px;
+      }
+    }
+  }
+}
+
+.display-on-flex {
+  display: flex;
+}
+
+.display-none {
+  display: none;
+}
+
+trial {
+  background-color: #ff657e;
+}
