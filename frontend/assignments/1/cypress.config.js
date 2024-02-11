@@ -32,6 +32,6 @@ module.exports = defineConfig({
     LOGIN_PAGE_URL: "login/index.html",
     REGISTER_PAGE_URL: "/register/index.html",
     visualRegressionType: 'regression'
-    TEST_THRESHOLD: 0.35,
+    TEST_THRESHOLD: 0.35
   },
 });
