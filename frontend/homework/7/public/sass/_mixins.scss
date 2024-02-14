@@ -1,0 +1,11 @@
+@use "./colors" as *;
+
+@mixin button-style {
+  cursor: pointer;
+  padding: 5px 15px;
+  color: white;
+  border: 0;
+  font-size: 17px;
+  border-radius: 10px;
+  transition: all 0.2s ease-in-out;
+}

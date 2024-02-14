@@ -1,0 +1,21 @@
+{
+  "name": "chat_app",
+  "version": "1.0.0",
+  "description": "KDU Chat App using SocketIO",
+  "main": "server.js",
+  "scripts": {
+    "dev": "nodemon server.js",
+    "start": "node server.js"
+  },
+  "author": "Asish Mahapatra",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^16.4.4",
+    "express": "^4.18.2",
+    "moment": "^2.29.4",
+    "socket.io": "^4.5.4"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}
