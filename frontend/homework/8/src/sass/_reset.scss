@@ -1,0 +1,39 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+input {
+  border: none;
+  outline: none;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  border-radius: 10px;
+  padding-inline: 10px;
+
+  &::placeholder {
+    color: black;
+  }
+}
+
+button {
+  border: none;
+  outline: none;
+  border-radius: 10px;
+  transition: all 0.2s ease-in-out;
+  background-color: black;
+  color: white;
+
+  &:hover {
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.678);
+  }
+
+  &:active {
+    transform: scale(0.8);
+  }
+}
+
+ul {
+  list-style: none;
+}

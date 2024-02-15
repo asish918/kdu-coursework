@@ -1,0 +1,237 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+input {
+  border: none;
+  outline: none;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  border-radius: 10px;
+  padding-inline: 10px;
+}
+input::placeholder {
+  color: black;
+}
+
+button {
+  border: none;
+  outline: none;
+  border-radius: 10px;
+  transition: all 0.2s ease-in-out;
+  background-color: black;
+  color: white;
+}
+button:hover {
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.678);
+}
+button:active {
+  transform: scale(0.8);
+}
+
+ul {
+  list-style: none;
+}
+
+.app__header {
+  width: 100%;
+  margin-top: 10px;
+  padding-inline: 50px;
+}
+.app__title {
+  width: 10%;
+  margin-inline: auto;
+  margin-bottom: 50px;
+}
+.app__search-bar {
+  width: 100%;
+  display: flex;
+  gap: 10px;
+  margin-bottom: 100px;
+}
+.app__search-bar input {
+  height: 50px;
+  flex-grow: 1;
+}
+.app__search-bar button {
+  width: 80px;
+  height: 50px;
+}
+
+.recipe__wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  row-gap: 20px;
+}
+.recipe__item {
+  flex-basis: 30%;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  position: relative;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border-radius: 20px;
+  padding: 10px;
+}
+.recipe__image {
+  flex-grow: 1;
+  width: 100%;
+  height: 300px;
+  border-radius: 10px;
+  margin-bottom: 5px;
+}
+.recipe__name {
+  width: 100%;
+  text-align: center;
+  line-height: 3rem;
+  border-block: 1px solid black;
+}
+.recipe__ingredients {
+  width: 100%;
+  padding: 10px;
+}
+.recipe__ingredients li {
+  text-align: center;
+}
+.recipe__cuisine {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-basis: 40%;
+  height: 50px;
+  background-color: black;
+  color: white;
+  border-radius: 10px;
+  margin: 5px;
+  flex-direction: row-reverse;
+  gap: 8px;
+}
+.recipe__difficulty {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-basis: 40%;
+  height: 50px;
+  background-color: black;
+  color: white;
+  border-radius: 10px;
+  margin: 5px;
+  flex-direction: row-reverse;
+  gap: 8px;
+}
+.recipe__time-taken {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-basis: 40%;
+  height: 50px;
+  background-color: black;
+  color: white;
+  border-radius: 10px;
+  margin: 5px;
+  flex-direction: row-reverse;
+  gap: 8px;
+}
+.recipe__rating {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-basis: 40%;
+  height: 50px;
+  background-color: black;
+  color: white;
+  border-radius: 10px;
+  margin: 5px;
+  flex-direction: row-reverse;
+  gap: 8px;
+}
+.recipe__calories {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-basis: 40%;
+  height: 50px;
+  background-color: black;
+  color: white;
+  border-radius: 10px;
+  margin: 5px;
+  flex-direction: row-reverse;
+  gap: 8px;
+}
+.recipe__rating {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  width: 30px;
+  height: 30px;
+  background-color: black;
+  color: white;
+  border-radius: 50%;
+  padding: 5px;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  border-radius: 20px;
+  background-color: #fefefe;
+  margin: 0 auto;
+  padding: 20px;
+  width: 90vw;
+  min-height: fit-content;
+  animation-name: modalFadeIn;
+  animation-duration: 0.3s;
+  position: relative;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  row-gap: 20px;
+}
+
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.close {
+  color: white;
+  background-color: black;
+  height: 30px;
+  width: 30px;
+  font-size: 28px;
+  font-weight: bold;
+  position: absolute;
+  top: 0;
+  right: 0;
+  text-align: center;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+  border-radius: 50%;
+}
+.close:active {
+  transform: scale(0.8);
+}
+
+@media (max-width: 400px) {
+  .recipe__wrapper {
+    flex-direction: column;
+  }
+}
+
+/*# sourceMappingURL=main.css.map */

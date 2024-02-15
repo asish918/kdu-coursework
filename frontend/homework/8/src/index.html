@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Recipe App</title>
+    <link rel="stylesheet" href="./main.scss" />
+    <script type="module" src="./app.ts"></script>
+    <script
+      src="https://kit.fontawesome.com/fed36a9c9d.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <header class="app__header">
+      <h1 class="app__title">Recipes</h1>
+
+      <nav class="app__search-bar">
+        <input id="input-box" type="text" />
+        <button id="search">Search</button>
+      </nav>
+    </header>
+
+    <div id="myModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+      </div>
+    </div>
+
+    <main class="recipe__wrapper"></main>
+  </body>
+</html>
