@@ -1,0 +1,23 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  padding-inline: 10px;
+}
+
+input {
+  padding-inline: 5px;
+  height: 100%;
+
+  &::placeholder {
+    text-align: center;
+  }
+}
+
+button {
+  border: none;
+  outline: none;
+}

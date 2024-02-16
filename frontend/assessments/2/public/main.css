@@ -1,0 +1,153 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  padding-inline: 10px;
+}
+
+input {
+  padding-inline: 5px;
+  height: 100%;
+}
+input::placeholder {
+  text-align: center;
+}
+
+button {
+  border: none;
+  outline: none;
+}
+
+.app-header {
+  background-color: #1871c2;
+  color: white;
+  padding: 10px;
+  margin-block: 10px;
+}
+
+.dashboard {
+  display: flex;
+  gap: 10px;
+}
+.dashboard__stock-info {
+  flex-basis: 75%;
+  height: 100vh;
+}
+.dashboard__header {
+  display: flex;
+  height: 7%;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+.dashboard__stock-name {
+  flex-grow: 1;
+  border: 1px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  order: -2;
+}
+.dashboard__stock-name img {
+  height: 30px;
+  width: 30px;
+  border-radius: 5px;
+}
+.dashboard__price-wrapper {
+  flex-grow: 1;
+  display: flex;
+  border: 1px solid black;
+  justify-content: space-between;
+  align-items: center;
+  order: -1;
+  padding-inline: 10px;
+}
+.dashboard__price {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+.dashboard__change {
+  align-self: flex-end;
+}
+.dashboard__buttons {
+  display: flex;
+  gap: 10px;
+}
+.dashboard__buy {
+  width: 40px;
+  background-color: #b2f2bb;
+  border: 1px solid #2f9e44;
+  color: #2f9e44;
+}
+.dashboard__sell {
+  width: 40px;
+  background-color: #ffc9c9;
+  border: 1px solid #e03131;
+  color: #e03131;
+}
+.dashboard__stock-history {
+  flex-basis: 25%;
+  border: 1px solid black;
+  padding: 10px;
+  height: 555px;
+}
+.dashboard__stock-history h1 {
+  margin-bottom: 10px;
+}
+.dashboard__history-item {
+  display: flex;
+  align-items: center;
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 8px;
+  margin-bottom: 10px;
+}
+.dashboard__purchase-info {
+  flex-grow: 1;
+}
+.dashboard__purchase-type {
+  color: #2f9e44;
+}
+
+.dashboard__graph-container {
+  border: 1px solid black;
+  display: flex;
+  align-items: flex-end;
+  height: 500px;
+}
+.dashboard__bar {
+  height: 80px;
+  width: 3.33%;
+}
+
+.buy {
+  color: #2f9e44;
+}
+
+.sell {
+  color: #e03131;
+}
+
+.positive-graph {
+  background-color: #b2f2bb;
+  border: 1px solid #2f9e44;
+}
+
+.negative-graph {
+  background-color: #ffc9c9;
+  border: 1px solid #e03131;
+}
+
+.positive-price {
+  color: #2f9e44;
+}
+
+.negative-price {
+  color: #e03131;
+}
+
+/*# sourceMappingURL=main.css.map */
