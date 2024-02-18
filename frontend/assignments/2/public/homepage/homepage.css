@@ -1,0 +1,196 @@
+@font-face {
+  font-family: Chirp, sans-serif;
+  src: url(../assets/fonts/Chirp-Regular.woff2);
+}
+@font-face {
+  font-family: Chirp, sans-serif;
+  src: url(../assets/fonts/Chirp-Medium.woff2);
+  font-weight: bold;
+}
+@font-face {
+  font-family: Chirp, sans-serif;
+  src: url(../assets/fonts/Chirp-Heavy.woff2);
+  font-weight: bolder;
+}
+@font-face {
+  font-family: Chirp, sans-serif;
+  src: url(../assets/fonts/Chirp-Bold.woff2);
+  font-weight: 900;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Chirp, sans-serif;
+  color: white;
+}
+
+html {
+  background-color: black;
+  height: 100%;
+}
+
+body {
+  height: 100%;
+}
+
+input {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  padding-inline: 10px;
+}
+
+button {
+  border: none;
+  outline: none;
+  background-color: transparent;
+}
+
+.navbar {
+  position: fixed;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  gap: 10px;
+  align-items: flex-start;
+  width: 23%;
+  margin-left: 15%;
+}
+.navbar__logo {
+  height: 40px;
+  width: 40px;
+}
+.navbar__item {
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  font-size: 1.3rem;
+  gap: 15px;
+  border-radius: 30px;
+}
+.navbar__item img {
+  height: 40px;
+  width: 40px;
+}
+.navbar__item:hover {
+  cursor: pointer;
+  background-color: gray;
+}
+.navbar__profile-info {
+  flex-grow: 1;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 5px;
+}
+.navbar__profile-info img {
+  width: 30px;
+  height: 30px;
+}
+.navbar__profile-pic {
+  height: 30px;
+  width: 30px;
+  background-color: orange;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 30px;
+}
+.navbar__profile-text {
+  flex-grow: 1;
+}
+.navbar__profile-text p {
+  color: #808080;
+}
+
+.main {
+  width: 40%;
+  margin-left: 38%;
+  margin-top: 10px;
+}
+.main__tweetbox {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+.main__tweet-input {
+  width: 100%;
+  min-height: 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.main__tweet-input input {
+  height: 40px;
+  padding: 0;
+}
+.main__tweet-input input::placeholder {
+  font-size: 1.2rem;
+}
+.main__tweet-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.main__tweet-actions img {
+  height: 20px;
+  width: 20px;
+}
+.main__tweet-actions img:nth-child(6) {
+  margin-right: auto;
+}
+.main__post-button {
+  background-color: #1d9bf0;
+  width: 80px;
+  border-radius: 30px;
+  padding-block: 10px;
+  font-weight: bold;
+}
+
+.post {
+  margin-top: 30px;
+  display: flex;
+  gap: 10px;
+}
+.post__info {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+.post__user-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.post__user-info img {
+  height: 30px;
+  width: 30px;
+  margin-left: auto;
+}
+.post__user {
+  font-size: 1.2rem;
+}
+.post__username {
+  color: #808080;
+}
+.post__time {
+  color: #808080;
+}
+.post__actions {
+  margin-top: 10px;
+  display: flex;
+  gap: 40px;
+}
+.post__actions img {
+  height: 25px;
+  width: 25px;
+}
+.post__actions img:nth-child(5) {
+  margin-left: auto;
+}
+
+/*# sourceMappingURL=homepage.css.map */

@@ -1,0 +1,66 @@
+@use "../sass" as *;
+
+.main {
+  max-width: 800px;
+  margin: 0 auto;
+  gap: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transform: translateY(50%);
+
+  &__header {
+    display: flex;
+    font-size: 3rem;
+    gap: 20px;
+  }
+
+  &__logo {
+    height: 50px;
+    width: 50px;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 40%;
+
+    input {
+      height: 50px;
+      border: 1px solid gray;
+      border-radius: 5px;
+    }
+
+    input::placeholder {
+      font-size: 1rem;
+      color: $secondary-text-color;
+    }
+
+    input:focus {
+      border: 1px solid $primary-color;
+    }
+  }
+
+  &__button {
+    @include button-primary;
+    height: 40px;
+    border-radius: 30px;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &:active {
+      transform: scale(0.8);
+    }
+  }
+}
+
+.error {
+  display: none;
+  color: $error;
+  background-color: rgba(255, 0, 0, 0.364);
+  padding: 5px;
+  border-radius: 10px;
+}

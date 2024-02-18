@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./login/login.css" />
+    <script defer src="./login/login.js" type="module"></script>
+    <title>Twitter Login</title>
+  </head>
+  <body>
+    <main class="main">
+      <div class="main__header">
+        <p>Login to</p>
+        <img
+          class="main__logo"
+          src="./assets/icons/logo.svg"
+          alt="Twitter Logo"
+        />
+      </div>
+
+      <p class="error">Invalid Credentials</p>
+
+      <form class="main__form">
+        <input
+          autocomplete="username"
+          required
+          placeholder="Username"
+          type="text"
+          id="username"
+        />
+        <input required placeholder="Password" type="password" id="password" />
+        <button type="submit" class="main__button">Log In</button>
+      </form>
+    </main>
+  </body>
+</html>

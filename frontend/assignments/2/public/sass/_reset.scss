@@ -1,0 +1,31 @@
+@use "./fonts" as *;
+@use "./colors" as *;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Chirp, sans-serif;
+  color: white;
+}
+html {
+  background-color: $background-color;
+  height: 100%;
+}
+
+body {
+  height: 100%;
+}
+
+input {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  padding-inline: 10px;
+}
+
+button {
+  border: none;
+  outline: none;
+  background-color: transparent;
+}

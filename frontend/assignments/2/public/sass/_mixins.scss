@@ -1,0 +1,8 @@
+@use "./colors" as *;
+
+@mixin button-primary {
+  font-size: 1.1rem;
+  font-weight: bold;
+  background-color: $primary-color;
+  transition: all 0.2s ease-in-out;
+}

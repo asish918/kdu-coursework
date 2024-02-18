@@ -1,0 +1,109 @@
+@font-face {
+  font-family: Chirp, sans-serif;
+  src: url(../assets/fonts/Chirp-Regular.woff2);
+}
+@font-face {
+  font-family: Chirp, sans-serif;
+  src: url(../assets/fonts/Chirp-Medium.woff2);
+  font-weight: bold;
+}
+@font-face {
+  font-family: Chirp, sans-serif;
+  src: url(../assets/fonts/Chirp-Heavy.woff2);
+  font-weight: bolder;
+}
+@font-face {
+  font-family: Chirp, sans-serif;
+  src: url(../assets/fonts/Chirp-Bold.woff2);
+  font-weight: 900;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Chirp, sans-serif;
+  color: white;
+}
+
+html {
+  background-color: black;
+  height: 100%;
+}
+
+body {
+  height: 100%;
+}
+
+input {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  padding-inline: 10px;
+}
+
+button {
+  border: none;
+  outline: none;
+  background-color: transparent;
+}
+
+.main {
+  max-width: 800px;
+  margin: 0 auto;
+  gap: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transform: translateY(50%);
+}
+.main__header {
+  display: flex;
+  font-size: 3rem;
+  gap: 20px;
+}
+.main__logo {
+  height: 50px;
+  width: 50px;
+}
+.main__form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 40%;
+}
+.main__form input {
+  height: 50px;
+  border: 1px solid gray;
+  border-radius: 5px;
+}
+.main__form input::placeholder {
+  font-size: 1rem;
+  color: #808080;
+}
+.main__form input:focus {
+  border: 1px solid #1d9bf0;
+}
+.main__button {
+  font-size: 1.1rem;
+  font-weight: bold;
+  background-color: #1d9bf0;
+  transition: all 0.2s ease-in-out;
+  height: 40px;
+  border-radius: 30px;
+}
+.main__button:hover {
+  cursor: pointer;
+}
+.main__button:active {
+  transform: scale(0.8);
+}
+
+.error {
+  display: none;
+  color: red;
+  background-color: rgba(255, 0, 0, 0.364);
+  padding: 5px;
+  border-radius: 10px;
+}
+
+/*# sourceMappingURL=login.css.map */

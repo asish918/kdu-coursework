@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./message/message.css" />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.11.2/qs.min.js"
+      integrity="sha512-vCegEXqPUYpZsTGz2lk0jaQ1psxtFeniVJACAXhMVxuoYa/N4nZkjoVFOxLwP7uGeQOoemiz7DQrIpRTj4IBPw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script defer src="./message/message.js"></script>
+    <title>Messages</title>
+  </head>
+  <body>
+    <nav class="navbar">
+      <img
+        class="navbar__logo"
+        src="./assets/icons/logo.svg"
+        alt="Twitter Logo"
+      />
+
+      <button class="navbar__item">
+        <img src="./assets/icons/home.svg" alt="Home" />
+        <p>Home</p>
+      </button>
+
+      <button class="navbar__item">
+        <img src="./assets/icons/search.svg" alt="Explore" />
+        <p>Explore</p>
+      </button>
+
+      <button class="navbar__item">
+        <img src="./assets/icons/notification.svg" alt="Notificaions" />
+        <p>Notifications</p>
+      </button>
+
+      <button class="navbar__item">
+        <img src="./assets/icons/message.svg" alt="Messages" />
+        <p>Messages</p>
+      </button>
+
+      <button class="navbar__item">
+        <img src="./assets/icons/grok.svg" alt="Grok" />
+        <p>Grok</p>
+      </button>
+
+      <button class="navbar__item">
+        <img src="./assets/icons/list.svg" alt="List" />
+        <p>List</p>
+      </button>
+
+      <button class="navbar__item">
+        <img src="./assets/icons/logo.svg" alt="Premium" />
+        <p>Premium</p>
+      </button>
+
+      <button class="navbar__item">
+        <img src="./assets/icons/person.svg" alt="Profile" />
+        <p>Profile</p>
+      </button>
+
+      <button class="navbar__item">
+        <img src="./assets/icons/more.svg" alt="More" />
+        <p>More</p>
+      </button>
+
+      <section class="navbar__profile-info">
+        <!-- <p class="navbar__profile-pic">A</p>
+
+        <div class="navbar__profile-text">
+          <h1>Asish Mahapatra</h1>
+          <p>@asish918</p>
+        </div>
+
+        <img src="./assets/icons/three_dots.svg" alt="More Options" /> -->
+      </section>
+    </nav>
+
+    <main class="main">
+      <section class="main__users">
+        <h2>Messages</h2>
+
+        <!-- <div class="user">
+          <p class="navbar__profile-pic">A</p>
+          <h1 class="user__name">Asish Mahapatra</h1>
+          <p class="user__username">@asish918</p>
+        </div> -->
+      </section>
+
+      <section class="main__messages">
+        <!-- <h2>Asish Mahapatra</h2>
+
+        <div class="message__container">
+          <div class="message self">
+            <p class="message__content">Hey</p>
+            <p class="message__time">15:08</p>
+          </div>
+          <div class="message other">
+            <p class="message__content">Hi</p>
+            <p class="message__time">15:08</p>
+          </div>
+        </div>
+
+        <div class="message__input">
+          <input
+            placeholder="Enter a message.."
+            type="text"
+            id="message-input"
+          />
+          <button class="message__button">
+            <img src="./assets/icons/send.svg" alt="Send" />
+          </button>
+        </div> -->
+      </section>
+    </main>
+  </body>
+</html>

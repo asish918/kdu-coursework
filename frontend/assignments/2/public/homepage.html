@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./homepage/homepage.css" />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.11.2/qs.min.js"
+      integrity="sha512-vCegEXqPUYpZsTGz2lk0jaQ1psxtFeniVJACAXhMVxuoYa/N4nZkjoVFOxLwP7uGeQOoemiz7DQrIpRTj4IBPw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script defer src="./homepage/homepage.js"></script>
+    <title>Homepage</title>
+  </head>
+  <body>
+    <nav class="navbar">
+      <img
+        class="navbar__logo"
+        src="./assets/icons/logo.svg"
+        alt="Twitter Logo"
+      />
+
+      <button class="navbar__item">
+        <img src="./assets/icons/home.svg" alt="Home" />
+        <p>Home</p>
+      </button>
+
+      <button class="navbar__item">
+        <img src="./assets/icons/search.svg" alt="Explore" />
+        <p>Explore</p>
+      </button>
+
+      <button class="navbar__item">
+        <img src="./assets/icons/notification.svg" alt="Notificaions" />
+        <p>Notifications</p>
+      </button>
+
+      <button id="message" class="navbar__item">
+        <img src="./assets/icons/message.svg" alt="Messages" />
+        <p>Messages</p>
+      </button>
+
+      <button class="navbar__item">
+        <img src="./assets/icons/grok.svg" alt="Grok" />
+        <p>Grok</p>
+      </button>
+
+      <button class="navbar__item">
+        <img src="./assets/icons/list.svg" alt="List" />
+        <p>List</p>
+      </button>
+
+      <button class="navbar__item">
+        <img src="./assets/icons/logo.svg" alt="Premium" />
+        <p>Premium</p>
+      </button>
+
+      <button class="navbar__item">
+        <img src="./assets/icons/person.svg" alt="Profile" />
+        <p>Profile</p>
+      </button>
+
+      <button class="navbar__item">
+        <img src="./assets/icons/more.svg" alt="More" />
+        <p>More</p>
+      </button>
+
+      <section class="navbar__profile-info">
+        <!-- <p class="navbar__profile-pic">A</p>
+
+        <div class="navbar__profile-text">
+          <h1>Asish Mahapatra</h1>
+          <p>@asish918</p>
+        </div> -->
+
+        <!-- <img src="./assets/icons/three_dots.svg" alt="More Options" /> -->
+      </section>
+    </nav>
+
+    <main class="main">
+      <section class="main__tweetbox">
+        <p class="navbar__profile-pic">A</p>
+
+        <div class="main__tweet-input">
+          <input
+            id="post-input"
+            type="text"
+            placeholder="What is happening?!"
+          />
+
+          <div class="main__tweet-actions">
+            <img src="./assets/icons/image.svg" alt="Image" />
+            <img src="./assets/icons/gif.svg" alt="Gif" />
+            <img src="./assets/icons/poll.svg" alt="Poll" />
+            <img src="./assets/icons/emoji.svg" alt="Emoji" />
+            <img src="./assets/icons/schedule.svg" alt="Schedule" />
+            <img src="./assets/icons/location.svg" alt="Location" />
+
+            <button id="post-button" class="main__post-button">Post</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="posts">
+        <!-- <div class="post">
+          <p class="navbar__profile-pic">A</p>
+
+          <div class="post__info">
+            <div class="post__user-info">
+              <h1 class="post__user">Asish Mahapatra</h1>
+              <p class="post__username">@asish918</p>
+              <p class="post__time">·15h</p>
+              <img src="./assets/icons/three_dots.svg" alt="More Info" />
+            </div>
+
+            <p class="post__content">Crazyy Bhaii</p>
+
+            <div class="post__actions">
+              <img src="./assets/icons/comment.svg" alt="Comment" />
+              <img src="./assets/icons/retweet.svg" alt="Retweet" />
+              <img src="./assets/icons/heart.svg" alt="Like" />
+              <img src="./assets/icons/stats.svg" alt="Stats" />
+              <img src="./assets/icons/bookmark.svg" alt="Bookmark" />
+              <img src="./assets/icons/share.svg" alt="Share" />
+            </div>
+          </div>
+        </div> -->
+      </section>
+    </main>
+  </body>
+</html>
