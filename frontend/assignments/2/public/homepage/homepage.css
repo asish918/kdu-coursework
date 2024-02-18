@@ -58,6 +58,15 @@ button {
   width: 23%;
   margin-left: 15%;
 }
+.navbar__post-button {
+  background-color: #1d9bf0;
+  width: 80%;
+  height: 50px;
+  border-radius: 30px;
+  padding-inline: 10px;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
 .navbar__logo {
   height: 40px;
   width: 40px;
@@ -71,12 +80,12 @@ button {
   border-radius: 30px;
 }
 .navbar__item img {
-  height: 40px;
-  width: 40px;
+  height: 30px;
+  width: 30px;
 }
 .navbar__item:hover {
   cursor: pointer;
-  background-color: gray;
+  background-color: rgba(128, 128, 128, 0.482);
 }
 .navbar__profile-info {
   flex-grow: 1;
@@ -93,10 +102,7 @@ button {
 .navbar__profile-pic {
   height: 30px;
   width: 30px;
-  background-color: orange;
   border-radius: 50%;
-  text-align: center;
-  line-height: 30px;
 }
 .navbar__profile-text {
   flex-grow: 1;
@@ -125,22 +131,36 @@ button {
   justify-content: space-between;
 }
 .main__tweet-input input {
+  order: -2;
   height: 40px;
   padding: 0;
 }
 .main__tweet-input input::placeholder {
   font-size: 1.2rem;
 }
+.main__tweet-input .uploaded-image {
+  order: -1;
+  height: 200px;
+  width: 200px;
+  border-radius: 10px;
+}
+.main__tweet-file {
+  height: 10px;
+  width: 10px;
+}
 .main__tweet-actions {
   display: flex;
   align-items: center;
   gap: 10px;
 }
+.main__tweet-actions label:hover {
+  cursor: pointer;
+}
 .main__tweet-actions img {
   height: 20px;
   width: 20px;
 }
-.main__tweet-actions img:nth-child(6) {
+.main__tweet-actions img:nth-child(7) {
   margin-right: auto;
 }
 .main__post-button {
@@ -180,6 +200,12 @@ button {
 .post__time {
   color: #808080;
 }
+.post__image {
+  border-radius: 10px;
+  margin-top: 5px;
+  width: 200px;
+  height: 200px;
+}
 .post__actions {
   margin-top: 10px;
   display: flex;
@@ -191,6 +217,79 @@ button {
 }
 .post__actions img:nth-child(5) {
   margin-left: auto;
+}
+
+.fab {
+  display: none;
+}
+
+@media (max-width: 400px) {
+  .navbar {
+    flex-direction: row;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: fit-content;
+    z-index: 1;
+    background-color: black;
+    margin: 0;
+    justify-content: space-around;
+  }
+  .navbar__item p {
+    display: none;
+  }
+  .navbar__logo {
+    display: none;
+  }
+  .navbar__post-button {
+    display: none;
+  }
+  .navbar__profile-info {
+    display: none;
+  }
+  .navbar button:nth-child(2) {
+    order: -5;
+  }
+  .navbar button:nth-child(3) {
+    order: -4;
+  }
+  .navbar button:nth-child(4) {
+    order: -2;
+  }
+  .navbar button:nth-child(6) {
+    order: -3;
+  }
+  .navbar button:nth-child(7) {
+    display: none;
+  }
+  .navbar button:nth-child(8) {
+    display: none;
+  }
+  .navbar button:nth-child(9) {
+    display: none;
+  }
+  .navbar button:nth-child(10) {
+    display: none;
+  }
+
+  .main {
+    width: 100%;
+    margin: 0;
+  }
+
+  .fab {
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    background-color: #1d9bf0;
+    border-radius: 50%;
+    display: block;
+    padding: 20px;
+  }
+  .fab img {
+    height: 35px;
+    width: 35px;
+  }
 }
 
 /*# sourceMappingURL=homepage.css.map */

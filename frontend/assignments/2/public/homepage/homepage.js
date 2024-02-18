@@ -7,19 +7,23 @@ const postButton = document.getElementById('post-button')
 const postInput = document.getElementById('post-input')
 const postsContainer = document.querySelector('.posts')
 
+const tweetBox = document.querySelector('.main__tweet-input')
+const mediaInput = document.getElementById("mediaInput")
+
 let page = 1;
 
 const { username } = Qs.parse(location.search, {
     ignoreQueryPrefix: true,
 });
 
-function populatePostsData(post) {
+async function populatePostsData(post) {
+    console.log(post);
     const postContainer = document.createElement('div');
     postContainer.classList.add('post');
 
-    const profilePic = document.createElement('p');
+    const profilePic = document.createElement('img');
     profilePic.classList.add('navbar__profile-pic');
-    profilePic.textContent = post.name.charAt(0);
+    profilePic.src = post.user_image;
 
     const postInfo = document.createElement('div');
     postInfo.classList.add('post__info');
@@ -48,6 +52,13 @@ function populatePostsData(post) {
     postContent.classList.add('post__content');
     postContent.textContent = post.content;
 
+    const postImage = document.createElement('img');
+    postImage.classList.add('post__image')
+
+    if (post.imageBlob?.length !== 0) {
+        postImage.src = post.imageBlob;
+    }
+
     const postActions = document.createElement('div');
     postActions.classList.add('post__actions');
 
@@ -75,6 +86,11 @@ function populatePostsData(post) {
 
     postInfo.appendChild(userInfo);
     postInfo.appendChild(postContent);
+
+    if (post.imageBlob?.length !== 0) {
+        postInfo.appendChild(postImage);
+    }
+
     postInfo.appendChild(postActions);
 
     postContainer.appendChild(profilePic);
@@ -86,9 +102,9 @@ function populatePostsData(post) {
 function populateProfileInfo(profileData) {
     console.log(profileData);
 
-    const profilePicElement = document.createElement('p');
+    const profilePicElement = document.createElement('img');
     profilePicElement.classList.add('navbar__profile-pic');
-    profilePicElement.textContent = profileData.name.charAt(0);
+    profilePicElement.src = profileData.profile_url;
 
     const profileTextDiv = document.createElement('div');
     profileTextDiv.classList.add('navbar__profile-text');
@@ -110,7 +126,7 @@ function populateProfileInfo(profileData) {
     profileInfo.appendChild(profileTextDiv);
     profileInfo.appendChild(moreOptionsImg);
 
-    tweetBoxProfile.textContent = profileData.name.charAt(0);
+    tweetBoxProfile.src = profileData.profile_url;
 }
 
 async function onLoad() {
@@ -135,6 +151,11 @@ messageButton.addEventListener('click', () => {
 })
 
 postButton.addEventListener('click', async () => {
+    let imageBlob = "";
+    if (mediaInput.files.length !== 0) {
+        imageBlob = await getImageBlob(mediaInput.files[0]);
+    }
+
     if (postInput.value.length === 0) {
         return;
     }
@@ -144,7 +165,13 @@ postButton.addEventListener('click', async () => {
 
     console.log(data);
     console.log(postInput.value)
-
+    console.log(JSON.stringify({
+        name: data.name,
+        username: data.username,
+        content: postInput.value,
+        user_image: data.profile_url,
+        imageBlob,
+    }))
     const postRes = await fetch("http://localhost:8000/api/posts", {
         method: 'POST',
         headers: {
@@ -153,7 +180,9 @@ postButton.addEventListener('click', async () => {
         body: JSON.stringify({
             name: data.name,
             username: data.username,
-            content: postInput.value
+            content: postInput.value,
+            user_image: data.profile_url,
+            imageBlob,
         })
     });
 
@@ -185,6 +214,42 @@ function handleScroll() {
     if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
         fetchPostData();
     }
+}
+
+function displayImage(file) {
+    const reader = new FileReader();
+    let img = document.createElement('img');
+    img.classList.add("uploaded-image")
+
+    reader.onload = function (e) {
+        img.src = e.target.result;
+        console.log(e.target.result)
+        tweetBox.appendChild(img)
+    };
+
+    reader.readAsDataURL(file);
+}
+
+function getImageBlob(file) {
+    return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = function (e) {
+            resolve(e.target.result);
+        };
+        reader.onerror = function (error) {
+            reject(error);
+        };
+
+        reader.readAsDataURL(file);
+    });
+}
+
+mediaInput.addEventListener("change", handleFiles, false);
+
+function handleFiles() {
+    const fileList = this.files; /* now you can work with the file list */
+    console.log(fileList[0]);
+    displayImage(fileList[0])
 }
 
 window.addEventListener('scroll', handleScroll);

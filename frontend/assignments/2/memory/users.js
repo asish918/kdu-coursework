@@ -6,13 +6,13 @@ const users = [];
 function userJoin(id, username) {
     const otherDetails = getByUsername(username)[0];
 
-    const user = { id, username, name: otherDetails.name };
+    const user = { id, username, name: otherDetails.name, profile_url: otherDetails.profile_url };
 
     users.push(user);
 
     if (!messages.has(id)) addEmptyUser(id);
 
-    return { username: user.username, name: otherDetails.name };
+    return { username: user.username, name: otherDetails.name, profile_url: otherDetails.profile_url };
 }
 
 function getCurrentUser(id) {
@@ -51,12 +51,15 @@ function addMessage({ id, username, content }) {
         user_id: id
     });
 
-    messages.get(id).push({
-        content,
-        time: "25:08",
-        type: "other",
-        user_id: user[0].id
-    })
+    if (user[0].id !== id) {
+
+        messages.get(id).push({
+            content,
+            time: "25:08",
+            type: "other",
+            user_id: user[0].id
+        })
+    }
 }
 
 function getUsers() {

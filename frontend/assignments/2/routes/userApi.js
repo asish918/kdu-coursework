@@ -9,7 +9,8 @@ router.get('/user/:username', (req, res) => {
 
     res.json({
         name: user[0].name,
-        username: user[0].user_name
+        username: user[0].user_name,
+        profile_url: user[0].profile_url
     });
 })
 

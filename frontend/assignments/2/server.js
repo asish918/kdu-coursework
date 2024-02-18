@@ -31,17 +31,6 @@ io.on('connection', (socket) => {
 
     socket.on('joinRoom', ({ username }) => {
         const user = userJoin(socket.id, username);
-
-        // socket.emit('message', formatMessage(botName, 'Welcome to KDU Chat App!!'));
-
-        // socket.broadcast.to(user.room).emit('message', formatMessage(botName, `${user.username} has joined the chat`));
-
-        // io.to(user.room).emit('roomUsers', {
-        //     room: user.room,
-        //     users: getRoomUsers(user.room)
-        // })
-
-        // socket.emit('userInfo', user);
         const activeUsers = getUsers();
         io.emit('activeUsers', activeUsers);
     });

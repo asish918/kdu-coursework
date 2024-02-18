@@ -67,21 +67,19 @@
         <p>More</p>
       </button>
 
-      <section class="navbar__profile-info">
-        <!-- <p class="navbar__profile-pic">A</p>
+      <button class="navbar__post-button">Post</button>
 
-        <div class="navbar__profile-text">
-          <h1>Asish Mahapatra</h1>
-          <p>@asish918</p>
-        </div> -->
-
-        <!-- <img src="./assets/icons/three_dots.svg" alt="More Options" /> -->
-      </section>
+      <section class="navbar__profile-info"></section>
     </nav>
 
     <main class="main">
       <section class="main__tweetbox">
-        <p class="navbar__profile-pic">A</p>
+        <img
+          id="tweetbox_image"
+          class="navbar__profile-pic"
+          src="https://picsum.photos/200/200"
+          alt="Profile Image"
+        />
 
         <div class="main__tweet-input">
           <input
@@ -90,8 +88,23 @@
             placeholder="What is happening?!"
           />
 
+          <!-- <img class="uploaded-image" src="./kickdrum.png" alt="hello" /> -->
+
           <div class="main__tweet-actions">
-            <img src="./assets/icons/image.svg" alt="Image" />
+            <label for="mediaInput">
+              <img
+                class="svg-icons-post"
+                src="./assets/icons/image.svg"
+                alt="media svg"
+              />
+            </label>
+            <input
+              type="file"
+              id="mediaInput"
+              style="display: none"
+              accept="image/*, video/*"
+            />
+            <!-- <img src="./assets/icons/image.svg" alt="Image" /> -->
             <img src="./assets/icons/gif.svg" alt="Gif" />
             <img src="./assets/icons/poll.svg" alt="Poll" />
             <img src="./assets/icons/emoji.svg" alt="Emoji" />
@@ -103,31 +116,11 @@
         </div>
       </section>
 
-      <section class="posts">
-        <!-- <div class="post">
-          <p class="navbar__profile-pic">A</p>
-
-          <div class="post__info">
-            <div class="post__user-info">
-              <h1 class="post__user">Asish Mahapatra</h1>
-              <p class="post__username">@asish918</p>
-              <p class="post__time">·15h</p>
-              <img src="./assets/icons/three_dots.svg" alt="More Info" />
-            </div>
-
-            <p class="post__content">Crazyy Bhaii</p>
-
-            <div class="post__actions">
-              <img src="./assets/icons/comment.svg" alt="Comment" />
-              <img src="./assets/icons/retweet.svg" alt="Retweet" />
-              <img src="./assets/icons/heart.svg" alt="Like" />
-              <img src="./assets/icons/stats.svg" alt="Stats" />
-              <img src="./assets/icons/bookmark.svg" alt="Bookmark" />
-              <img src="./assets/icons/share.svg" alt="Share" />
-            </div>
-          </div>
-        </div> -->
-      </section>
+      <section class="posts"></section>
     </main>
+
+    <button class="fab">
+      <img src="./assets/icons/fob.svg" alt="Action Button" />
+    </button>
   </body>
 </html>

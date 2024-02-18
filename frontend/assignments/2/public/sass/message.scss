@@ -13,6 +13,16 @@ body {
   width: 23%;
   margin-left: 5%;
 
+  &__post-button {
+    background-color: $primary-color;
+    width: 80%;
+    height: 50px;
+    border-radius: 30px;
+    padding-inline: 10px;
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+
   &__logo {
     height: 40px;
     width: 40px;
@@ -27,8 +37,8 @@ body {
     border-radius: 30px;
 
     img {
-      height: 40px;
-      width: 40px;
+      height: 30px;
+      width: 30px;
     }
 
     &:hover {
@@ -102,6 +112,10 @@ body {
   align-items: center;
   gap: 10px;
 
+  &:hover {
+    cursor: pointer;
+  }
+
   &__name {
     font-size: 1.2rem;
   }
@@ -156,6 +170,10 @@ body {
     padding: 2px;
     width: 30px;
     height: 30px;
+
+    &:hover {
+      cursor: pointer;
+    }
   }
 }
 
@@ -179,4 +197,21 @@ body {
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
+}
+
+@media (max-width: 400px) {
+  .navbar {
+    display: none;
+  }
+
+  .main {
+    &__users {
+      width: 100%;
+    }
+
+    &__messages {
+      display: none;
+      width: 100%;
+    }
+  }
 }

@@ -23,9 +23,9 @@ router.get('/posts', (req, res) => {
     } else if (req.query.id) {
         const post = getPostById(req.query.id);
         if (post.length === 0) {
-            res.send(404).send("No such post");
+            res.status(404).send("No such post");
         } else {
-            res.send(200).json(post[0]);
+            res.status(200).json(post[0]);
         }
 
     } else {
@@ -40,7 +40,9 @@ router.post('/posts', (req, res) => {
         id: postId,
         name: req.body.name,
         username: req.body.username,
-        content: req.body.content
+        content: req.body.content,
+        imageBlob: req.body.imageBlob,
+        user_image: req.body.user_image
     }
 
     addPost(post);

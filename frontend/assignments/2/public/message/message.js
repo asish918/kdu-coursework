@@ -79,9 +79,9 @@ function populateUser(userData) {
     const userContainer = document.createElement('div');
     userContainer.classList.add('user');
 
-    const profilePic = document.createElement('p');
+    const profilePic = document.createElement('img');
     profilePic.classList.add('navbar__profile-pic');
-    profilePic.textContent = userData.name.charAt(0);
+    profilePic.src = userData.profile_url;
 
     const userName = document.createElement('h1');
     userName.classList.add('user__name');
@@ -96,6 +96,11 @@ function populateUser(userData) {
     userContainer.appendChild(userUsername);
 
     userContainer.addEventListener('click', () => {
+        mainMessageDiv.style.display = "flex";
+        console.log(window.innerWidth);
+        if (window.innerWidth <= 400) {
+            activeUserContainer.style.display = "none";
+        }
         mainMessageDiv.innerHTML = '';
         console.log("Socket id of " + userData.username + " - " + userData.id);
         setActiveChat(userData.id);
@@ -106,9 +111,9 @@ function populateUser(userData) {
 }
 
 function populateProfileInfo(profileData) {
-    const profilePicElement = document.createElement('p');
+    const profilePicElement = document.createElement('img');
     profilePicElement.classList.add('navbar__profile-pic');
-    profilePicElement.textContent = profileData.name.charAt(0);
+    profilePicElement.src = profileData.profile_url;
 
     const profileTextDiv = document.createElement('div');
     profileTextDiv.classList.add('navbar__profile-text');

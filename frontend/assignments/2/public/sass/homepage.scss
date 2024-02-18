@@ -11,6 +11,16 @@
   width: 23%;
   margin-left: 15%;
 
+  &__post-button {
+    background-color: $primary-color;
+    width: 80%;
+    height: 50px;
+    border-radius: 30px;
+    padding-inline: 10px;
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+
   &__logo {
     height: 40px;
     width: 40px;
@@ -25,13 +35,13 @@
     border-radius: 30px;
 
     img {
-      height: 40px;
-      width: 40px;
+      height: 30px;
+      width: 30px;
     }
 
     &:hover {
       cursor: pointer;
-      background-color: gray;
+      background-color: rgba(128, 128, 128, 0.482);
     }
   }
 
@@ -52,10 +62,7 @@
   &__profile-pic {
     height: 30px;
     width: 30px;
-    background-color: $profile-background;
     border-radius: 50%;
-    text-align: center;
-    line-height: 30px;
   }
 
   &__profile-text {
@@ -88,6 +95,7 @@
     justify-content: space-between;
 
     input {
+      order: -2;
       height: 40px;
       padding: 0;
     }
@@ -95,6 +103,19 @@
     input::placeholder {
       font-size: 1.2rem;
     }
+
+    .uploaded-image {
+      order: -1;
+      height: 200px;
+      width: 200px;
+      border-radius: 10px;
+    }
+  }
+
+  &__tweet-file {
+    // display: none;
+    height: 10px;
+    width: 10px;
   }
 
   &__tweet-actions {
@@ -102,12 +123,16 @@
     align-items: center;
     gap: 10px;
 
+    label:hover {
+      cursor: pointer;
+    }
+
     img {
       height: 20px;
       width: 20px;
     }
 
-    img:nth-child(6) {
+    img:nth-child(7) {
       margin-right: auto;
     }
   }
@@ -156,6 +181,13 @@
     color: $secondary-text-color;
   }
 
+  &__image {
+    border-radius: 10px;
+    margin-top: 5px;
+    width: 200px;
+    height: 200px;
+  }
+
   &__actions {
     margin-top: 10px;
     display: flex;
@@ -168,6 +200,94 @@
 
     img:nth-child(5) {
       margin-left: auto;
+    }
+  }
+}
+
+.fab {
+  display: none;
+}
+
+@media (max-width: 400px) {
+  .navbar {
+    flex-direction: row;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: fit-content;
+    z-index: 1;
+    background-color: black;
+    margin: 0;
+    justify-content: space-around;
+
+    &__item {
+      p {
+        display: none;
+      }
+    }
+
+    &__logo {
+      display: none;
+    }
+
+    &__post-button {
+      display: none;
+    }
+
+    &__profile-info {
+      display: none;
+    }
+
+    button:nth-child(2) {
+      order: -5;
+    }
+
+    button:nth-child(3) {
+      order: -4;
+    }
+
+    button:nth-child(4) {
+      order: -2;
+    }
+
+    button:nth-child(6) {
+      order: -3;
+    }
+
+    button:nth-child(7) {
+      display: none;
+    }
+
+    button:nth-child(8) {
+      display: none;
+    }
+
+    button:nth-child(9) {
+      display: none;
+    }
+
+    button:nth-child(10) {
+      display: none;
+    }
+  }
+
+  .main {
+    width: 100%;
+    margin: 0;
+  }
+
+  .fab {
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    background-color: $primary-color;
+    border-radius: 50%;
+    display: block;
+    padding: 20px;
+
+    img {
+      height: 35px;
+      width: 35px;
     }
   }
 }
