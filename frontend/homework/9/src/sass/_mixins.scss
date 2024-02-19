@@ -1,0 +1,7 @@
+@mixin box-container($color) {
+  width: 45%;
+  height: 40vh;
+  background-color: $color;
+  padding: 10px;
+  border-radius: 20px;
+}

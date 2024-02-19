@@ -1,0 +1,21 @@
+@use "../../sass" as *;
+
+.hobbies {
+  @include box-container($green);
+
+  &__heading {
+    text-align: center;
+    color: $orange;
+    margin-bottom: 20px;
+  }
+
+  &__list {
+    color: $dark-green;
+  }
+}
+
+@media (max-width: 400px) {
+  .hobbies {
+    width: 100%;
+  }
+}

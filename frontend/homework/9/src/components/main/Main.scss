@@ -1,0 +1,37 @@
+@use "../../sass" as *;
+
+.main-container {
+  background-color: $yellow;
+  width: 70%;
+  margin: 0 auto;
+  transform: translateY(20%);
+  display: flex;
+  padding: 20px;
+  flex-wrap: wrap;
+  row-gap: 20px;
+  justify-content: space-between;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  border-radius: 20px;
+
+  &__name {
+    font-size: 1.5rem;
+    width: 100%;
+  }
+
+  &__full-name {
+    width: 100%;
+  }
+
+  &__designation {
+    font-size: 1.5rem;
+    width: 100%;
+  }
+}
+
+@media (max-width: 400px) {
+  .main-container {
+    transform: translateY(5%);
+    margin-bottom: 80px;
+    text-align: center;
+  }
+}
