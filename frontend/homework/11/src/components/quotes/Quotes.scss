@@ -1,0 +1,52 @@
+@use "../../sass" as *;
+
+.quotes {
+  background-color: $primary;
+  color: $main-background;
+  border-radius: 15px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  &__content {
+    text-align: center;
+    font-size: 1.4rem;
+    font-weight: 900;
+  }
+
+  &__author {
+    text-align: end;
+    font-weight: bolder;
+    font-size: 1rem;
+    color: rgb(186, 185, 185);
+
+    &::before {
+      content: "~";
+    }
+  }
+
+  &__date {
+    text-align: end;
+    font-size: 0.9rem;
+    font-weight: normal;
+    color: rgb(186, 185, 185);
+  }
+
+  &__tags {
+    display: flex;
+    gap: 10px;
+  }
+
+  &__tag {
+    color: black;
+    font-weight: 900;
+    background-color: $tag-background;
+    padding: 10px;
+    border-radius: 20px;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
