@@ -1,18 +1,29 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import Home from './Home'
+import { Outlet, useLoaderData } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import axios from "axios";
+import { Product } from "./apptypes";
+import { useContext, useEffect } from "react";
+import { AppContext } from "./context/AppContextProvider";
 
-function App() {
-  return (
-    <BrowserRouter>
-      <Routes>
-        <Route path='/home' element={<Home />} />
-      </Routes>
-    </BrowserRouter>
-  )
+export async function appLoader(): Promise<{ data: Product[] }> {
+  const res = await axios.get("https://fakestoreapi.com/products");
+  return { data: res.data };
 }
 
-export default App
+export default function App() {
+  const { data }: { data: Product[] } = useLoaderData();
+  console.log(data);
+
+  const { items, setItems } = useContext(AppContext);
+
+  useEffect(() => {
+    setItems(data);
+  }, [])
+
+  return (
+    <>
+      <Navbar />
+      <Outlet context={items} />
+    </>
+  )
+}
