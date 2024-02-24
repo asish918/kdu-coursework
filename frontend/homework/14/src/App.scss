@@ -1,0 +1,64 @@
+@use "./sass" as *;
+
+body {
+  padding: 30px;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 700px;
+  margin: 0 auto;
+  gap: 30px;
+
+  &__timer {
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 10px;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+
+    p {
+      font-size: 1.5rem;
+      flex-basis: 100%;
+      text-align: center;
+    }
+
+    button {
+      margin-top: 10px;
+      border-radius: 5px;
+      background-color: black;
+      color: white;
+      font-size: 1rem;
+      padding: 5px;
+      margin-inline: auto;
+      transition: all 0.3s ease-in-out;
+      cursor: pointer;
+
+      &:active {
+        transform: scale(0.8);
+      }
+    }
+  }
+
+  &__card {
+    background-color: gray;
+    cursor: pointer;
+    color: white;
+    width: 100%;
+    text-align: center;
+    height: 80px;
+    border-radius: 10px;
+    padding-block: 30px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    transition: all 0.3s ease-in-out;
+
+    &:active {
+      transform: scale(0.8);
+    }
+  }
+}
