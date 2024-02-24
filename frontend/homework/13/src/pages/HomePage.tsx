@@ -1,5 +1,7 @@
 import { Link, useOutletContext } from "react-router-dom"
 import { Product } from "../apptypes"
+import { useContext, useEffect } from "react"
+import { AppContext } from "../context/AppContextProvider"
 
 export default function HomePage() {
     const mainSection: React.CSSProperties = {
@@ -68,21 +70,37 @@ export default function HomePage() {
         alignItems: "center"
     }
 
-    const data: Product[] = useOutletContext();
+    const emptyContainer: React.CSSProperties = {
+        textAlign: "center",
+        width: "100%",
+        fontSize: "2rem"
+    }
+
+    const { items } = useContext(AppContext);
+
+    useEffect(() => {
+        console.log("Some shit")
+        console.log(items)
+    }, [items])
 
     return (
         <section style={mainSection}>
             <h1 style={mainTitle}>KDU MARKETPLACE</h1>
             <div style={productContainer}>
                 {
-                    data.map(product => (
-                        <Link to={`/products/${product.id}`} key={product.id} style={cardContainer}>
-                            <img style={cardImage} src={product.image} alt={product.title} />
-                            <h2 style={cardTitle}>{product.title}</h2>
-                            <p style={cardPrice}>$ {product.price}</p>
-                            <p style={cardRating}>{product.rating.rate}</p>
-                        </Link>
-                    ))
+                    items.length > 0 ?
+                        items.map(product => (
+                            <Link to={`/products/${product.id}`} key={product.id} style={cardContainer}>
+                                <img style={cardImage} src={product.image} alt={product.title} />
+                                <h2 style={cardTitle}>{product.title}</h2>
+                                <p style={cardPrice}>$ {product.price}</p>
+                                <p style={cardRating}>{product.rating.rate}</p>
+                            </Link>
+                        ))
+                        :
+                        <div style={emptyContainer}>
+                            No Items
+                        </div>
                 }
             </div>
         </section>

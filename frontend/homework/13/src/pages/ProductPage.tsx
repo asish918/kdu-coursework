@@ -29,12 +29,9 @@ export default function ProductPage() {
 
     const productImage: React.CSSProperties = {
         height: "60vh",
-        // flexGrow: "1"
-        // width: "70vw"
     }
 
     const productDetails: React.CSSProperties = {
-        // flexGrow: "1"
         display: "flex",
         flexDirection: "column",
         gap: "30px"
@@ -45,7 +42,8 @@ export default function ProductPage() {
     }
 
     const productPrice: React.CSSProperties = {
-
+        color: "#2a2a72",
+        fontWeight: "bolder"
     }
 
     const productDescriptionHeading: React.CSSProperties = {
@@ -79,7 +77,7 @@ export default function ProductPage() {
 
                 <div style={productDetails}>
                     <h2 style={productCategory}>Category: {data.category}</h2>
-                    <h3 style={productPrice}>Price: {data.price}</h3>
+                    <h3 style={productPrice}>Price: ${data.price}</h3>
                     <p style={productDescriptionHeading}>Product Description: </p>
                     <p style={productDescriptionContent}>{data.description}</p>
                     <button onClick={() => navigate(-1)} style={backButton}>Back to products</button>

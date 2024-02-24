@@ -14,7 +14,7 @@ export default function App() {
   const { data }: { data: Product[] } = useLoaderData();
   console.log(data);
 
-  const { items, setItems } = useContext(AppContext);
+  const { setItems } = useContext(AppContext);
 
   useEffect(() => {
     setItems(data);
@@ -22,8 +22,8 @@ export default function App() {
 
   return (
     <>
-      <Navbar />
-      <Outlet context={items} />
+      <Navbar data={data} />
+      <Outlet />
     </>
   )
 }
