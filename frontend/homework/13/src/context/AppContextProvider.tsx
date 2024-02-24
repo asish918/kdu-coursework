@@ -6,7 +6,7 @@ export const AppContext = createContext<IAppContext>({
     setItems: () => { }
 });
 
-export default function AppContextProvider({ children }: React.PropsWithChildren) {
+export default function AppContextProvider({ children }: Readonly<React.PropsWithChildren>) {
     const [items, setItems] = useState<Product[]>([]);
 
     return (

@@ -1,6 +1,5 @@
-import { Link, useOutletContext } from "react-router-dom"
-import { Product } from "../apptypes"
-import { useContext, useEffect } from "react"
+import { Link } from "react-router-dom"
+import { useContext } from "react"
 import { AppContext } from "../context/AppContextProvider"
 
 export default function HomePage() {
@@ -78,15 +77,10 @@ export default function HomePage() {
 
     const { items } = useContext(AppContext);
 
-    useEffect(() => {
-        console.log("Some shit")
-        console.log(items)
-    }, [items])
-
     return (
         <section style={mainSection}>
             <h1 style={mainTitle}>KDU MARKETPLACE</h1>
-            <div style={productContainer}>
+            <div className="productContainer" style={productContainer}>
                 {
                     items.length > 0 ?
                         items.map(product => (

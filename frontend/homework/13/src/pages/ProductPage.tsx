@@ -1,9 +1,8 @@
 import axios from "axios"
 import { Product } from "../apptypes";
-import { useLoaderData } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 
-export async function productLoader({ params }): Promise<{ data: Product }> {
+export async function productLoader({ params }: { params: string }): Promise<{ data: Product }> {
     const res = await axios.get(`https://fakestoreapi.com/products/${params.productId}`);
     return { data: res.data };
 }
