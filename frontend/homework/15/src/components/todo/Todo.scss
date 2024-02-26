@@ -1,0 +1,63 @@
+@use "../../sass" as *;
+
+.todo-container {
+  border: 1px solid $border-color;
+  width: 60%;
+  margin: 0 auto;
+  padding: 15px;
+
+  &__heading {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+
+  &__input {
+    margin-bottom: 20px;
+
+    input {
+      border: 1px solid $border-color;
+      margin-right: 10px;
+    }
+  }
+
+  &__submit-button {
+    background-color: $black;
+    color: white;
+    padding: 8px;
+    transition: all 0.3s ease-in-out;
+    margin-inline: 5px;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &:active {
+      transform: scale(0.8);
+    }
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    border-top: 1px solid $border-color;
+    border-left: 1px solid $border-color;
+    border-right: 1px solid $border-color;
+
+    &:last-child {
+      border-bottom: 1px solid $border-color;
+    }
+  }
+}
+
+.close {
+  background-color: $red;
+  width: 25px;
+}
+
+@media (max-width: 400px) {
+  .todo-container {
+    width: 90%;
+  }
+}

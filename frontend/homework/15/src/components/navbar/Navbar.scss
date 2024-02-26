@@ -1,0 +1,31 @@
+@use "../../sass" as *;
+
+.navbar {
+  background-color: $green;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-bottom: 20px;
+  height: 100px;
+
+  &__heading {
+    font-size: 2.5rem;
+  }
+
+  &__search {
+    width: 30%;
+    background-color: white;
+    border-radius: 5px;
+  }
+}
+
+@media (max-width: 400px) {
+  .navbar {
+    height: 70px;
+
+    &__heading {
+      font-size: 2rem;
+    }
+  }
+}
