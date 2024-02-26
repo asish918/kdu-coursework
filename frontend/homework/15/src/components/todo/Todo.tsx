@@ -4,10 +4,15 @@ import './Todo.scss'
 import { AppContext } from '../../context/AppContextProvider';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootDispatch, RootState } from '../../store/store';
-import { addTodo, checkTodo, clearCompleted, deleteTodo } from '../../reducers/todoSlice';
+import { addTodo, checkTodo, clearCompleted, deleteTodo, editTodo } from '../../reducers/todoSlice';
+import { MdDelete, MdEdit } from 'react-icons/md';
+import { TiTick } from 'react-icons/ti';
 
 export default function Todo() {
     const [taskInput, setTaskInput] = useState('');
+
+    const [taskEditInput, setTaskEditInput] = useState('');
+    const [editTaskId, setEditTaskId] = useState<number | null>(null);
 
     const tasks = useSelector((state: RootState) => state.todo);
     const dispatch: RootDispatch = useDispatch();
@@ -17,10 +22,10 @@ export default function Todo() {
     const { searchState } = useContext(AppContext);
 
     function addTask() {
-        if (taskInput.trim().length === 0 || taskInput.length === 0) return;
+        if (!taskInput.trim().length || !taskInput.length) return;
 
         const newTask: Task = {
-            id: tasks.length === 0 ? 1 : tasks[tasks.length - 1].id + 1,
+            id: !tasks.length ? 1 : tasks[tasks.length - 1].id + 1,
             name: taskInput,
             done: false
         }
@@ -43,6 +48,12 @@ export default function Todo() {
 
     function clearChecked() {
         dispatch(clearCompleted())
+    }
+
+    function editTask(id: number, newName: string) {
+        if (!newName.length) return;
+        dispatch(editTodo({ id, newName }));
+        setEditTaskId(null);
     }
 
     return (
@@ -79,9 +90,30 @@ export default function Todo() {
                     searchState.length == 0 &&
                     tasks.map(task => (
                         <div key={task.id} className='todo-container__item'>
-                            <input type="checkbox" checked={task.done} onChange={() => taskCheckHandler(task.id)} />
-                            <p style={{ textDecoration: `${task.done ? "line-through" : ''}` }}>{task.name}</p>
-                            <button onClick={() => deleteTask(task.id)} className='close'>X</button>
+                            {editTaskId === task.id ? (
+                                <>
+                                    <input
+                                        className='edit-input'
+                                        type="text"
+                                        value={taskEditInput}
+                                        onChange={e => setTaskEditInput(e.target.value)}
+                                        autoFocus
+                                    />
+                                    <button className='edit' onClick={() => editTask(task.id, taskEditInput)}><TiTick className='icon' /></button>
+                                </>
+                            ) : (
+                                <>
+                                    <input type="checkbox" checked={task.done} onChange={() => taskCheckHandler(task.id)} />
+                                    <p style={{ textDecoration: `${task.done ? "line-through" : ''}` }}>{task.name}</p>
+                                    <div className='todo-container__actions'>
+                                        <button className='edit' onClick={() => {
+                                            setEditTaskId(task.id)
+                                            setTaskEditInput(task.name)
+                                        }}><MdEdit className='icon' /></button>
+                                        <button onClick={() => deleteTask(task.id)} className='close'><MdDelete className='icon' /></button>
+                                    </div>
+                                </>
+                            )}
                         </div>
                     ))
                 }

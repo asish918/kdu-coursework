@@ -13,7 +13,7 @@ export default function Navbar() {
     const dispatch: RootDispatch = useDispatch();
 
     function searchChangeHandler(event: React.ChangeEvent<HTMLInputElement>): void {
-        if (event.target.value.length === 0) {
+        if (!event.target.value.length) {
             setSearchState('');
             return;
         }
