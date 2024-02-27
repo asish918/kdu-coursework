@@ -1,0 +1,109 @@
+@use "../../sass" as *;
+
+.todo-container {
+  border: 1px solid $border-color;
+  width: 60%;
+  margin: 0 auto;
+  padding: 15px;
+
+  &__heading {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+
+  &__input {
+    margin-bottom: 20px;
+
+    input {
+      border: 1px solid $border-color;
+      margin-right: 10px;
+    }
+  }
+
+  &__submit-button {
+    background-color: $black;
+    color: white;
+    padding: 8px;
+    transition: all 0.3s ease-in-out;
+    margin-inline: 5px;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &:active {
+      transform: scale(0.8);
+    }
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 5px;
+    padding: 10px;
+    border-top: 1px solid $border-color;
+    border-left: 1px solid $border-color;
+    border-right: 1px solid $border-color;
+
+    p {
+      word-break: break-all;
+      white-space: normal;
+    }
+
+    &:last-child {
+      border-bottom: 1px solid $border-color;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    gap: 10px;
+  }
+}
+
+.close {
+  background-color: $red;
+  width: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+
+  &:active {
+    transform: scale(0.8);
+  }
+}
+
+.edit {
+  background-color: black;
+  color: white;
+  width: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+
+  &:active {
+    transform: scale(0.8);
+  }
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+}
+
+.edit-input {
+  width: 100%;
+  border-radius: 5px;
+}
+
+@media (max-width: 400px) {
+  .todo-container {
+    width: 90%;
+
+    &__input {
+      input {
+        width: 100%;
+        margin-bottom: 10px;
+      }
+    }
+  }
+}
