@@ -1,0 +1,31 @@
+@use "../sass" as *;
+
+.navbar {
+  display: flex;
+  background-color: $primary;
+  color: white;
+  gap: 20px;
+  align-items: center;
+  padding-inline: 10%;
+  padding-block: 1%;
+
+  &__input {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    flex-grow: 1;
+
+    input {
+      background-color: white;
+    }
+
+    button {
+      padding: 2px;
+    }
+  }
+
+  &__action {
+    display: flex;
+    gap: 10px;
+  }
+}

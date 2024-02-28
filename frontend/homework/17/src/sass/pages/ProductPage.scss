@@ -1,0 +1,66 @@
+@use "../index" as *;
+
+.productpage {
+  &__heading {
+    text-align: center;
+    font-size: 1.5rem;
+    margin-block: 40px;
+    color: $primary;
+  }
+}
+
+.element {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &__img {
+    padding-inline: 50px;
+    height: 400px;
+    flex-grow: 1;
+    width: 50%;
+  }
+
+  &__details {
+    padding-inline: 30px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+  }
+
+  &__price {
+    color: $primary;
+    font-weight: 700;
+  }
+
+  &__desc-heading {
+    font-weight: 700;
+  }
+
+  &__desc {
+    margin-top: -40px;
+  }
+}
+
+.back-button {
+  width: 40%;
+  height: fit-content;
+  padding: 10px;
+  background-color: transparent;
+  border-radius: 5px;
+  color: $buttonborder;
+  border: 1px solid $buttonborder;
+  cursor: pointer;
+}
+
+@media (max-width: 400px) {
+  .element {
+    flex-direction: column;
+
+    &__img {
+      width: 100%;
+      margin-bottom: 20px;
+    }
+  }
+}
