@@ -3,9 +3,8 @@ package asish.kdu;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Main
-{
-    public static void main( String[] args ) {
+public class Main {
+    public static void main(String[] args) {
         StudentRepository accessRepo = new StudentRepository();
 
         Scanner sc = new Scanner(System.in);
@@ -21,7 +20,7 @@ public class Main
             System.out.println("Enter your choice: ");
             choice = sc.nextInt();
 
-            switch(choice) {
+            switch (choice) {
                 case 1:
                     System.out.println("Enter ID - ");
                     Integer id = sc.nextInt();
@@ -36,8 +35,7 @@ public class Main
                             id,
                             age,
                             name,
-                            grade
-                    ));
+                            grade));
                     break;
                 case 2:
                     System.out.println("Enter ID - ");
@@ -52,8 +50,7 @@ public class Main
                             id,
                             age,
                             name,
-                            grade
-                    ));
+                            grade));
                     break;
                 case 3:
                     int viewChoice = 1;
@@ -72,23 +69,22 @@ public class Main
                             System.out.println("2. Name");
                             int printChoice = sc.nextInt();
 
-                            if(printChoice == 1) {
+                            if (printChoice == 1) {
                                 System.out.println("Enter ID - ");
                                 Integer searchId = sc.nextInt();
                                 Student st = accessRepo.retrieve(searchId);
-                                if(st.getId() != null)
+                                if (st.getId() != null)
                                     Utils.viewStudent(st);
                                 else
                                     System.out.println("No Students to view");
-                            }
-                            else if(printChoice == 2) {
+                            } else if (printChoice == 2) {
                                 System.out.println("Enter Name - ");
                                 String searchName = sc.next();
                                 ArrayList<Student> stList = accessRepo.retrieve(searchName);
 
-                                if(stList.size() == 1)
+                                if (stList.size() == 1)
                                     Utils.viewStudent(stList.get(0));
-                                else if(stList.size() > 1)
+                                else if (stList.size() > 1)
                                     Utils.viewStudents(stList);
                                 else
                                     System.out.println("No Students to view");
